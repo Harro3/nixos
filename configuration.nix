@@ -64,12 +64,15 @@
     variant = "altgr-intl";
   };
 
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.harro = {
     isNormalUser = true;
     description = "Harro";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   home-manager = {
