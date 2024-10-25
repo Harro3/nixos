@@ -6,6 +6,8 @@
   home.username = "harro";
   home.homeDirectory = "/home/harro";
 
+  wayland.windowManager.hyprland.xwayland.enable = true;
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -17,12 +19,14 @@
 
   programs.bat.catppuccin.enable = true;
   programs.fzf.catppuccin.enable = true;
+  programs.yazi.catppuccin.enable = true;
   
   services.dunst.catppuccin.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
+    yazi
     nerdfonts
     sesh
     zoxide
@@ -44,6 +48,7 @@
   home.file = {
     ".zshrc".source = dotfiles/zsh/.zshrc;
     ".p10k.zsh".source = dotfiles/zsh/.p10k.zsh;
+    "Pictures/wallpapers".source = dotfiles/wallpapers;
 
     ".config/dunst".source = dotfiles/dunst;
     ".config/hypr".source = dotfiles/hypr;

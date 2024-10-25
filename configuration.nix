@@ -21,14 +21,27 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.catppuccin.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
-  services.displayManager.sddm.catppuccin.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.package = pkgs.kdePackages.sddm;
+  # services.displayManager.sddm.catppuccin.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+
+  programs.hyprland.enable = true;
+  programs.xwayland.enable = true;
+  services.greetd = {
+    enable = true;
+    vt = 7;
+    settings = rec {
+      initial_session = {
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --asterisks --time'';
+        user = "harro";
+      };
+      default_session = initial_session;
+    };
+  };
 
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
-  programs.hyprland.enable = true;
 
   networking.hostName = "harro-nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
