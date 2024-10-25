@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -10,10 +10,14 @@
       ./hardware-configuration.nix
     ];
 
+  catppuccin.enable = true;
+  catppuccin.flavor = "mocha";
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.catppuccin.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
@@ -57,6 +61,16 @@
     description = "Harro";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+  };
+
+  home-manager = {
+    extraSpecialArgs = {inherit inputs};
+    users = {
+      "harro".imports = [
+        ./home.nix
+        catppuccin.homeManagerModules.catppuccin
+      ];
+    };
   };
 
   # Allow unfree packages
