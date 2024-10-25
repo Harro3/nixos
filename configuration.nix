@@ -19,7 +19,14 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.catppuccin.enable = true;
 
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
+  services.displayManager.sddm.catppuccin.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+
   nix.settings.experimental-features = ["nix-command" "flakes" ];
+
+  programs.hyprland.enable = true;
 
   networking.hostName = "harro-nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -64,13 +71,30 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs};
+    extraSpecialArgs = {inherit inputs; };
     users = {
       "harro".imports = [
         ./home.nix
-        catppuccin.homeManagerModules.catppuccin
+        inputs.catppuccin.homeManagerModules.catppuccin
       ];
     };
+  };
+
+services.interception-tools =
+  let
+    itools = pkgs.interception-tools;
+    itools-caps = pkgs.interception-tools-plugins.caps2esc;
+  in
+  {
+    enable = true;
+    plugins = [ itools-caps ];
+    # requires explicit paths: https://github.com/NixOS/nixpkgs/issues/126681
+    udevmonConfig = pkgs.lib.mkDefault ''
+      - JOB: "${itools}/bin/intercept -g $DEVNODE | ${itools-caps}/bin/caps2esc -m 1 | ${itools}/bin/uinput -d $DEVNODE"
+        DEVICE:
+          EVENTS:
+            EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+    '';
   };
 
   # Allow unfree packages
@@ -79,8 +103,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    wget
+    git
+    firefox
+    vim
+    hyprland
+    kitty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

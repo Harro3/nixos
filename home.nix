@@ -19,6 +19,11 @@
   # environment.
   home.packages = with pkgs;[
     zoxide
+    bat
+    eza
+    fzf
+    tmux
+    neovim
 
     waybar
     wofi
@@ -31,7 +36,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".zshrc".source = dotfiles/zsh/.zshrc;
-    ".p10k.zsh".source = dotfiles/zsh/.p10h.zsh;
+    ".p10k.zsh".source = dotfiles/zsh/.p10k.zsh;
 
     ".config/dunst".source = dotfiles/dunst;
     ".config/hypr".source = dotfiles/hypr;
