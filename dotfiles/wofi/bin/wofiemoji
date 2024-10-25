@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo -n $($HOME/.config/wofi/wofiemoji.sh | wofi --dmenu 2> /dev/null | cut -d' ' -f2) | wl-copy
