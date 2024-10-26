@@ -57,6 +57,22 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # sound.enable = true;
+  # services.pulseaudio.enable = true;
+  # services.pulseaudio.defaultSink = "default";
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = false;
+    # audio.enable = true;
+    # alsa.enable = true;
+    # alsa.support32Bit = true;
+    # pulse.enable = true;
+    # jack.enable = true;
+    # wireplumber.enable = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
@@ -87,7 +103,7 @@
   users.users.harro = {
     isNormalUser = true;
     description = "Harro";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "sound" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -132,6 +148,8 @@ services.interception-tools =
     vim
     hyprland
     kitty
+    pulseaudio
+    pavucontrol
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
