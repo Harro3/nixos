@@ -21,6 +21,10 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.catppuccin.enable = true;
 
+  security.pam.services.hyprlock = {
+};
+  programs.hyprlock.enable = true;
+
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.package = pkgs.kdePackages.sddm;
   # services.displayManager.sddm.catppuccin.enable = true;
