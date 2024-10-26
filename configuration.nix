@@ -125,6 +125,7 @@ services.interception-tools =
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    brightnessctl
     wget
     git
     firefox

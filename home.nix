@@ -22,12 +22,16 @@
   programs.yazi.catppuccin.enable = true;
   wayland.windowManager.hyprland.catppuccin.enable = true;
   
-  services.dunst.catppuccin.enable = true;
+  services.mako.enable = true;
+  services.mako.catppuccin.enable = true;
+  services.hypridle.enable = true;
+
 
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
+    libnotify
     yazi
     nerdfonts
     sesh
@@ -41,7 +45,6 @@
     waybar
     wofi
     hyprpaper
-    dunst
     wl-clipboard
   ];
 
@@ -136,7 +139,7 @@
         dots_size = 0.2;
         dots_spacing = 0.2;
         dots_center = true;
-        outer_color = "$accent";
+        outer_color = "$lavender";
         inner_color = "$surface0";
         font_color = "$text";
         fade_on_empty = false;
@@ -152,6 +155,36 @@
       };
     };
   };
+
+  services.hypridle.settings = {
+    general = {
+      lock_cmd = "pidof hyprlock || hyprlock";
+      before_sleep_cmd = "loginctl lock-session";
+      after_sleep_cmd = "hyprctl dispatch dpms on";
+    };
+
+    listener = [
+      {
+        timeout = 150;
+        on-timeout = "brightnessctl -s set 10%";
+        on-resume = "brightnessctl -r";
+      }
+      {
+        timeout = 180;
+        on-timeout = "loginctl lock-session";
+      }
+      {
+        timeout = 300;
+        on-timeout = "hyprctl dispatch dpms off";
+        on-resume = "hyprctl dispatch dpms on";
+      }
+      {
+        timeout = 1800;
+        on-timeout = "systemctl suspend";
+      }
+    ];
+  };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
