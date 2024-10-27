@@ -2,157 +2,37 @@
 
 {
   imports = [
+    ./modules/firefox.nix
+
     ./modules/zsh.nix
+    ./modules/tmux.nix
+
+    ./modules/mako.nix
+
+     ./modules/hyprland/hyprland.nix
+     ./modules/hyprland/hypridle.nix
   ];
   home.username = "harro";
   home.homeDirectory = "/home/harro";
 
-  wayland.windowManager.hyprland.xwayland.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "24.05";
 
-  programs.bat.catppuccin.enable = true;
-  programs.fzf.catppuccin.enable = true;
-  programs.yazi.catppuccin.enable = true;
-  wayland.windowManager.hyprland.catppuccin.enable = true;
   
-  services.mako.enable = true;
-  services.mako.catppuccin.enable = true;
-  services.hypridle.enable = true;
-
-  programs.tmux = {
-    enable = true;
-    plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
-      yank
-    ];
-    extraConfig = ''
-unbind r
-set-option -sa terminal-overrides ",xterm*:Tc"
-set-option -g default-shell ${pkgs.zsh}/bin/zsh
-set -g default-terminal "screen-256color"
-
-set -g prefix C-a
-set -g mouse on
-bind-key h select-pane -L
-bind-key j select-pane -D
-bind-key k select-pane -U
-bind-key l select-pane -R
-
-bind C-l send-keys 'C-l'
-
-set -g base-index 1
-set -g pane-base-index 1
-set-window-option -g pane-base-index 1
-set-option -g renumber-windows on
-
-set-option -g status-position top
-
-setw -g mode-keys vi
-bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-set -g set-clipboard on
-
-bind '"' split-window -v -c "$\{pane_current-path}"
-bind % split-window -h -c "$\{pane_current_path}"
-
-
-set -g @catppuccin_directory_text "#{pane_current_path}" 
-
-set -gq allow-passthrough on
-'';
-  catppuccin = {
-    enable = true;
-    extraConfig = ''
-set -g @catppuccin_window_left_separator ""
-set -g @catppuccin_window_right_separator " "
-set -g @catppuccin_window_middle_separator " █"
-set -g @catppuccin_window_number_position "right"
-
-set -g @catppuccin_window_default_fill "number"
-set -g @catppuccin_window_default_text "#W"
-
-set -g @catppuccin_window_current_fill "number"
-set -g @catppuccin_window_current_text "#W"
-
-set -g @catppuccin_status_modules_right "directory user host session"
-set -g @catppuccin_status_left_separator  " "
-set -g @catppuccin_status_right_separator ""
-set -g @catppuccin_status_fill "icon"
-set -g @catppuccin_status_connect_separator "no"
-'';
-    };
-  };
-
   programs.btop.catppuccin.enable = true;
 
-    programs.firefox = {
-      enable = true;
-      languagePacks = [ "de" "en-US" ];
-
-      /* ---- POLICIES ---- */
-      # Check about:policies#documentation for options.
-      policies = {
-        DisableTelemetry = true;
-        DisableFirefoxStudies = true;
-        EnableTrackingProtection = {
-          Value= true;
-          Locked = true;
-          Cryptomining = true;
-          Fingerprinting = true;
-        };
-        DisablePocket = true;
-        DisableFirefoxAccounts = true;
-        DisableAccounts = true;
-        DisableFirefoxScreenshots = true;
-        OverrideFirstRunPage = "";
-        OverridePostUpdatePage = "";
-        DontCheckDefaultBrowser = true;
-        DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
-        DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
-        SearchBar = "unified"; # alternative: "separate"
-
-        /* ---- EXTENSIONS ---- */
-        # Check about:support for extension/add-on ID strings.
-        # Valid strings for installation_mode are "allowed", "blocked",
-        # "force_installed" and "normal_installed".
-        ExtensionSettings = {
-          # "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
-          # Bitwarden
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Catppuccin
-          "{8446b178-c865-4f5c-8ccc-1d7887811ae3}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-lavender-git/latest.xpi";
-            installation_mode = "force_installed";
-          };
-        };
-      };
-    };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
-    btop
     slack
     discord
     spotify
     tmux
     nh
-    fastfetch
-    libnotify
-    yazi
     nerdfonts
     sesh
-    zoxide
-    bat
-    eza
-    fzf
-    tmux
     neovim
 
     waybar
@@ -166,11 +46,8 @@ set -g @catppuccin_status_connect_separator "no"
   home.file = {
     "Pictures/wallpapers".source = dotfiles/wallpapers;
 
-    ".config/dunst".source = dotfiles/dunst;
-    # ".config/hypr/hyprlock.conf".source = dotfiles/hypr/hyprlock.conf;
     ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
     ".config/hypr/hyprpaper.conf".source = dotfiles/hypr/hyprpaper.conf;
-    # ".config/hypr/mocha.conf".source = dotfiles/hypr/mocha.conf;
     ".config/kitty".source = dotfiles/kitty;
     ".config/waybar".source = dotfiles/waybar;
     ".config/wofi".source = dotfiles/wofi;
@@ -267,34 +144,6 @@ set -g @catppuccin_status_connect_separator "no"
     };
   };
 
-  services.hypridle.settings = {
-    general = {
-      lock_cmd = "pidof hyprlock || hyprlock";
-      before_sleep_cmd = "loginctl lock-session";
-      after_sleep_cmd = "hyprctl dispatch dpms on";
-    };
-
-    listener = [
-      {
-        timeout = 150;
-        on-timeout = "brightnessctl -s set 10%";
-        on-resume = "brightnessctl -r";
-      }
-      {
-        timeout = 180;
-        on-timeout = "loginctl lock-session";
-      }
-      {
-        timeout = 300;
-        on-timeout = "hyprctl dispatch dpms off";
-        on-resume = "hyprctl dispatch dpms on";
-      }
-      {
-        timeout = 1800;
-        on-timeout = "systemctl suspend";
-      }
-    ];
-  };
 
   home.file.".config/hypr/scripts/volume.sh".text = ''
 #!/bin/sh
