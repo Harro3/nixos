@@ -19,6 +19,7 @@
     programs.bat.catppuccin.enable = true;
     programs.fzf.catppuccin.enable = true;
     programs.yazi.catppuccin.enable = true;
+    programs.btop.catppuccin.enable = true;
 
     home.file.".zshrc".source = ../dotfiles/zsh/.zshrc;
     home.file.".p10k.zsh".source = ../dotfiles/zsh/.p10k.zsh;
