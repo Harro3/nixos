@@ -13,6 +13,10 @@
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
 
+  environment.sessionVariables = {
+    FLAKE = "/home/harro/nixos";
+  };
+
   # Bootloader.
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.efiSupport = true;
@@ -47,7 +51,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
 
-  networking.hostName = "harro-nixos";
+  networking.hostName = "harro-legion";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
