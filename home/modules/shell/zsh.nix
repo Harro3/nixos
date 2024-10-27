@@ -21,8 +21,8 @@
     programs.yazi.catppuccin.enable = true;
     programs.btop.catppuccin.enable = true;
 
-    home.file.".zshrc".source = ../dotfiles/zsh/.zshrc;
-    home.file.".p10k.zsh".source = ../dotfiles/zsh/.p10k.zsh;
+    home.file.".zshrc".source = ./.zshrc;
+    home.file.".p10k.zsh".source = ./.p10k.zsh;
 
   };
 }

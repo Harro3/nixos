@@ -7,5 +7,8 @@
   config = {
     wayland.windowManager.hyprland.xwayland.enable = true;
     wayland.windowManager.hyprland.catppuccin.enable = true;
+
+    home.file.".config/hypr/scripts/volume.sh".source = ./scripts/volume.sh;
+    home.file.".config/hypr/scripts/brightness.sh".source = ./scripts/brightness.sh;
   };
 }
