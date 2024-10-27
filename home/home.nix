@@ -12,7 +12,9 @@
      ./modules/hyprland/hyprland.nix
      ./modules/hyprland/hypridle.nix
      ./modules/hyprland/hyprpaper.nix
+     ./modules/hyprland/hyprlock.nix
   ];
+
   home.username = "harro";
   home.homeDirectory = "/home/harro";
 
@@ -23,11 +25,6 @@
   wallpaper = ./wallpapers/mountains.jpg;
 
   
-  programs.btop.catppuccin.enable = true;
-
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs;[
     slack
     discord
@@ -46,105 +43,16 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # "Pictures/wallpapers".source = dotfiles/wallpapers;
-
     ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
-    # ".config/hypr/hyprpaper.conf".source = dotfiles/hypr/hyprpaper.conf;
     ".config/kitty".source = dotfiles/kitty;
     ".config/waybar".source = dotfiles/waybar;
     ".config/wofi".source = dotfiles/wofi;
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/harro/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "neovim";
   };
 
-  
-
-  programs.hyprlock = {
-    enable = true;
-    catppuccin.enable = true;
-    settings = {
-      general = {
-        hide_cursor = true;
-      };
-
-      background = [
-        {
-          path = "screenshot";
-          blur_passes = 2;
-          blur_size = 6;
-          color = "$base";
-        }
-      ];
-
-      label = [
-      {
-        text = "Layout: $LAYOUT";
-        color = "$text";
-        font_size = 25;
-        font_family = "$font";
-        position = "30, -30";
-        halign = "left";
-        valign = "top";
-      }
-      {
-        text = "$TIME";
-        color = "$text";
-        font_size = 90;
-        font_family = "$font";
-        position = "-30, 0";
-        halign = "right";
-        valign = "top";
-      }
-      {
-        text = ''cmd[update:43200000] date +"%A, %d %B %Y"'';
-        color = "$text";
-        font_size = 25;
-        font_family = "$font";
-        position = "-30, -150";
-        halign = "right";
-        valign = "top";
-      }
-      ];
-      input-field = {
-        size = "300, 60";
-        outline_thickness = 4;
-        dots_size = 0.2;
-        dots_spacing = 0.2;
-        dots_center = true;
-        outer_color = "$lavender";
-        inner_color = "$surface0";
-        font_color = "$text";
-        fade_on_empty = false;
-        placeholder_text = ''<span foreground="##$textAlpha"><i>󰌾 Logged in as </i><span foreground="##$accentAlpha">$USER</span></span>'';
-        hide_input = false;
-        check_color = "$accent";
-        fail_color = "$red";
-        fail_text = ''<i>$FAIL <b>($ATTEMPTS)</b></i>'';
-        capslock_color = "$yellow";
-        position = "0, -47";
-        halign = "center";
-        valign = "center";
-      };
-    };
-  };
 
 
   home.file.".config/hypr/scripts/volume.sh".text = ''
