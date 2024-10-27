@@ -116,7 +116,7 @@
     extraSpecialArgs = {inherit inputs; };
     users = {
       "harro".imports = [
-        ./home.nix
+        ./home/home.nix
         inputs.catppuccin.homeManagerModules.catppuccin
       ];
     };
