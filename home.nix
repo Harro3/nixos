@@ -93,10 +93,13 @@ set -g @catppuccin_status_connect_separator "no"
     };
   };
 
+  programs.btop.catppuccin.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
+    btop
+    slack
     discord
     spotify
     tmux
