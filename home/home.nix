@@ -11,6 +11,7 @@
 
      ./modules/hyprland/hyprland.nix
      ./modules/hyprland/hypridle.nix
+     ./modules/hyprland/hyprpaper.nix
   ];
   home.username = "harro";
   home.homeDirectory = "/home/harro";
@@ -18,6 +19,8 @@
   nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "24.05";
+
+  wallpaper = ./wallpapers/mountains.jpg;
 
   
   programs.btop.catppuccin.enable = true;
@@ -37,17 +40,16 @@
 
     waybar
     wofi
-    hyprpaper
     wl-clipboard
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    "Pictures/wallpapers".source = dotfiles/wallpapers;
+    # "Pictures/wallpapers".source = dotfiles/wallpapers;
 
     ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
-    ".config/hypr/hyprpaper.conf".source = dotfiles/hypr/hyprpaper.conf;
+    # ".config/hypr/hyprpaper.conf".source = dotfiles/hypr/hyprpaper.conf;
     ".config/kitty".source = dotfiles/kitty;
     ".config/waybar".source = dotfiles/waybar;
     ".config/wofi".source = dotfiles/wofi;
