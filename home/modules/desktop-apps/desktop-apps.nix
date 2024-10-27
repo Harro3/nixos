@@ -5,6 +5,12 @@
   };
 
   config = {
+    home.packages = with pkgs; [
+      slack
+      discord
+      spotify
+    ];
+
     programs.firefox = {
       enable = true;
       languagePacks = [ "de" "en-US" ];

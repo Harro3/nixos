@@ -2,10 +2,17 @@
 
 {
   imports = [
-    ./modules/firefox.nix
+    ./modules/desktop-apps/desktop-apps.nix
+
+    ./modules/kitty/kitty.nix
 
     ./modules/shell/zsh.nix
     ./modules/shell/tmux.nix
+    ./modules/shell/sesh.nix
+
+    ./modules/wofi/wofi.nix
+
+    ./modules/waybar/waybar.nix
 
      ./modules/hyprland/hyprland.nix
      ./modules/hyprland/hypridle.nix
@@ -20,43 +27,19 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  home.stateVersion = "24.05";
-
   wallpaper = ./wallpapers/mountains.jpg;
 
-  
   home.packages = with pkgs;[
-    slack
-    discord
-    spotify
-    tmux
+    wl-clipboard
     nh
     nerdfonts
-    sesh
     neovim
-
-    waybar
-    wofi
-    wl-clipboard
   ];
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    ".config/hypr/hyprland.conf".source = dotfiles/hypr/hyprland.conf;
-    ".config/kitty".source = dotfiles/kitty;
-    ".config/waybar".source = dotfiles/waybar;
-    ".config/wofi".source = dotfiles/wofi;
-  };
 
   home.sessionVariables = {
     EDITOR = "neovim";
   };
 
-
-
-
-
-  # Let Home Manager install and manage itself.
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 }
