@@ -46,6 +46,7 @@
     gnumake
     gcc
     nodejs
+    cargo
     rustc
     python311
     docker

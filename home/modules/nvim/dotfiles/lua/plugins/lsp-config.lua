@@ -38,6 +38,7 @@ return {
 					"volar",
 					"cssls",
 					"html",
+					"nil",
 				},
 			})
 		end,
