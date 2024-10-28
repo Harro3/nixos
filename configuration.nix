@@ -15,6 +15,8 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/harro/nixos";
+    NIXOS_OZONE_WL = "1";
+    HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
   };
 
   # Bootloader.
@@ -145,7 +147,7 @@ services.interception-tools =
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # vesktop
+    hyprshot
     playerctl
     brightnessctl
     wget
