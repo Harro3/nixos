@@ -5,7 +5,7 @@
 
 	"modules-center": ["custom/music"],
 
-	"modules-right": ["pulseaudio", "battery", "clock", "tray", "custom/lock", "custom/power"],
+	"modules-right": ["network", "pulseaudio", "battery", "clock", "tray", "custom/lock", "custom/power"],
 
 	"hyprland/workspaces": {
 		"disable-scroll": true,
@@ -25,11 +25,11 @@
 		"spacing": 10
 	},
 	"custom/music": {
-		"format": "󰝚   {}",
+		"format": "󰝚  {}",
 		"escape": true,
 		"interval": 5,
 		"tooltip": false,
-		"exec": "playerctl metadata --format='{{ title }}'",
+		"exec": "playerctl metadata --format='{{artist}} - {{title}}'",
 		"on-click": "playerctl play-pause",
 		"max-length": 50
 	},
@@ -67,6 +67,13 @@
 		"format": "⏻ ",
 		"on-click": "poweroff",
 		"tooltip": false
-	}
+	},
+	"network" : {
+        "interval" : 1,
+        "format-disconnected" : "Disconnected ⚠",
+        "format-ethernet" : "{ifname}: {ipaddr}/{cidr}   up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "format-linked" : "{ifname} (No IP) ⚠",
+        "format-wifi" : "{essid} ({signalStrength}%) "
+      }
 
 }
