@@ -11,11 +11,6 @@
       hyprshot
     ];
 
-    home.sessionVariables = {
-      HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
-    };
-      
-
     wayland.windowManager.hyprland.xwayland.enable = true;
     wayland.windowManager.hyprland.catppuccin.enable = true;
 

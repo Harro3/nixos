@@ -17,6 +17,8 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/harro/nixos";
+    NIXOS_OZONE_WL = "1";
+    HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
   };
 
   # Security for hyprlock
