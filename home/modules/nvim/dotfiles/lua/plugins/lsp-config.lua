@@ -38,7 +38,7 @@ return {
 					"volar",
 					"cssls",
 					"html",
-					"nil",
+					"nil_ls",
 				},
 			})
 		end,

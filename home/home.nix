@@ -33,6 +33,7 @@
   wallpaper = ./wallpapers/mountains.jpg;
 
   home.packages = with pkgs;[
+    lazygit
     unzip
     zathura
     libreoffice
@@ -52,6 +53,7 @@
     docker
     docker-compose
     jdk17
+    clang-tools
     # clang
     texlab
     pandoc
