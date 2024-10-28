@@ -15,8 +15,6 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/harro/nixos";
-    NIXOS_OZONE_WL = "1";
-    HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
   };
 
   # Bootloader.
@@ -97,11 +95,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "altgr-intl";
-  };
 
   programs.zsh.enable = true;
 
@@ -147,7 +140,6 @@ services.interception-tools =
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    hyprshot
     playerctl
     brightnessctl
     wget
