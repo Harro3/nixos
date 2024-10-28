@@ -9,6 +9,8 @@
     ./modules/shell/zsh.nix
     ./modules/shell/tmux.nix
     ./modules/shell/sesh.nix
+    
+    ./modules/nvim/nvim.nix
 
     ./modules/wofi/wofi.nix
 
@@ -35,10 +37,6 @@
     nerdfonts
     neovim
   ];
-
-  home.sessionVariables = {
-    EDITOR = "neovim";
-  };
 
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
