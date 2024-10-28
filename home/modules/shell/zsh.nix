@@ -16,6 +16,7 @@
       fzf
     ];
 
+    programs.zsh.enable = true;
     programs.bat.catppuccin.enable = true;
     programs.fzf.catppuccin.enable = true;
     programs.yazi.catppuccin.enable = true;
