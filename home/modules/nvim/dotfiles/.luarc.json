@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "maplocalleader"
+    ],
+    "diagnostics.disable": [
+        "undefined-global"
+    ]
+}

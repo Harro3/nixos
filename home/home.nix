@@ -28,14 +28,33 @@
   home.homeDirectory = "/home/harro";
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   wallpaper = ./wallpapers/mountains.jpg;
 
   home.packages = with pkgs;[
+    unzip
+    zathura
+    libreoffice
     wl-clipboard
     nh
     nerdfonts
-    neovim
+    jq
+
+    lua
+    cmake
+    gnumake
+    gcc
+    nodejs
+    rustc
+    python311
+    docker
+    docker-compose
+    jdk17
+    # clang
+    texlab
+    pandoc
+    texlivePackages.latexmk
   ];
 
   home.stateVersion = "24.05";
