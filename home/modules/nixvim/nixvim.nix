@@ -17,8 +17,8 @@
     ./plugins/global/floaterm.nix
     ./plugins/global/flash.nix
 
-    ./plugins/lsp/nix.nix
-    ./plugins/lsp/c.nix
+    ./plugins/languages/nix.nix
+    ./plugins/languages/c.nix
   ];
 
   programs.nixvim.enable = true;
