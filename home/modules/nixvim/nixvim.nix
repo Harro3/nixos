@@ -23,10 +23,15 @@
     ./plugins/global/lualine.nix
     ./plugins/global/neogen.nix
     ./plugins/global/noice.nix
+    ./plugins/global/tmux-navigator.nix
+    ./plugins/global/surround.nix
+    ./plugins/global/telescope.nix
+    ./plugins/global/which-key.nix
 
     ./plugins/languages/nix.nix
     ./plugins/languages/c.nix
     ./plugins/languages/markdown.nix
+    ./plugins/languages/obsidian.nix
   ];
 
   programs.nixvim.enable = true;

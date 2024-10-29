@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    keymap = [
+    keymaps = [
       {
         mode = "n";
         key = "<leader>mc";
