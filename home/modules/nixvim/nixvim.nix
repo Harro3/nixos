@@ -16,7 +16,9 @@
     ./plugins/global/alpha.nix
     ./plugins/global/floaterm.nix
     ./plugins/global/flash.nix
-    ./plugins/global/copilot.nix
+    # ./plugins/global/copilot.nix
+    ./plugins/global/plenary.nix
+    ./plugins/global/git.nix
 
     ./plugins/languages/nix.nix
     ./plugins/languages/c.nix

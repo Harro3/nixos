@@ -33,6 +33,8 @@
   programs.xwayland.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  hardware.bluetooth.enable = true;
+
   networking.hostName = "harro-legion";
   networking.networkmanager.enable = true;
 
@@ -66,6 +68,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    bluez
     playerctl
     brightnessctl
     wget

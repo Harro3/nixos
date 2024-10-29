@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   programs.nixvim = {
+    plugins.cmp-nvim-lsp.enable = true;
     plugins.lsp = {
       enable = true;
       inlayHints = true;

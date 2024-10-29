@@ -1,4 +1,4 @@
-{pkgs, ...} : {
+{pkgs, ...}: {
   programs.nixvim = {
     keymaps = [
       {
@@ -16,9 +16,5 @@
       nui.enable = true;
       web-devicons.enable = true;
     };
-
-    extraPlugins = with pkgs.vimPlugins; [
-      plenary-nvim
-    ];
   };
 }
