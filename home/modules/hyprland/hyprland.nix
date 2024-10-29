@@ -1,10 +1,10 @@
-{ inputs, pkgs, ...}:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   options = {
-
   };
-
-
 
   config = {
     home.packages = with pkgs; [

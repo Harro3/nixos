@@ -1,11 +1,16 @@
-{ inputs, pkgs, lib, config, ... }:
 {
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     wallpaper = lib.mkOption {
       type = lib.types.path;
       description = ''
         Path to wallpaper
-	'';
+      '';
     };
   };
 
@@ -15,8 +20,8 @@
     ];
 
     home.file.".config/hypr/hyprpaper.conf".text = ''
-        preload = ${config.wallpaper}
-        wallpaper=,${config.wallpaper}
-        '';
+      preload = ${config.wallpaper}
+      wallpaper=,${config.wallpaper}
+    '';
   };
 }

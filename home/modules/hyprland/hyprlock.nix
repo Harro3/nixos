@@ -1,7 +1,9 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   options = {
-
   };
 
   config = {
@@ -23,33 +25,33 @@
         ];
 
         label = [
-        {
-          text = "Layout: $LAYOUT";
-          color = "$text";
-          font_size = 25;
-          font_family = "$font";
-          position = "30, -30";
-          halign = "left";
-          valign = "top";
-        }
-        {
-          text = "$TIME";
-          color = "$text";
-          font_size = 90;
-          font_family = "$font";
-          position = "-30, 0";
-          halign = "right";
-          valign = "top";
-        }
-        {
-          text = ''cmd[update:43200000] date +"%A, %d %B %Y"'';
-          color = "$text";
-          font_size = 25;
-          font_family = "$font";
-          position = "-30, -150";
-          halign = "right";
-          valign = "top";
-        }
+          {
+            text = "Layout: $LAYOUT";
+            color = "$text";
+            font_size = 25;
+            font_family = "$font";
+            position = "30, -30";
+            halign = "left";
+            valign = "top";
+          }
+          {
+            text = "$TIME";
+            color = "$text";
+            font_size = 90;
+            font_family = "$font";
+            position = "-30, 0";
+            halign = "right";
+            valign = "top";
+          }
+          {
+            text = ''cmd[update:43200000] date +"%A, %d %B %Y"'';
+            color = "$text";
+            font_size = 25;
+            font_family = "$font";
+            position = "-30, -150";
+            halign = "right";
+            valign = "top";
+          }
         ];
         input-field = {
           size = "300, 60";

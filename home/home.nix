@@ -1,6 +1,8 @@
-{ inputs, pkgs,  ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./modules/desktop-apps/desktop-apps.nix
 
@@ -9,7 +11,7 @@
     ./modules/shell/zsh.nix
     ./modules/shell/tmux.nix
     ./modules/shell/sesh.nix
-    
+
     # ./modules/nvim/nvim.nix
     ./modules/nixvim/nixvim.nix
 
@@ -17,14 +19,12 @@
 
     ./modules/waybar/waybar.nix
 
-     ./modules/hyprland/hyprland.nix
-     ./modules/hyprland/hypridle.nix
-     ./modules/hyprland/hyprpaper.nix
-     ./modules/hyprland/hyprlock.nix
-     ./modules/hyprland/mako.nix
-
+    ./modules/hyprland/hyprland.nix
+    ./modules/hyprland/hypridle.nix
+    ./modules/hyprland/hyprpaper.nix
+    ./modules/hyprland/hyprlock.nix
+    ./modules/hyprland/mako.nix
   ];
-
 
   home.username = "harro";
   home.homeDirectory = "/home/harro";
@@ -34,8 +34,7 @@
 
   wallpaper = ./wallpapers/mountains.jpg;
 
-
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     lazygit
     unzip
     zathura

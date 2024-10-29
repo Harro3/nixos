@@ -1,7 +1,9 @@
-{ inputs, pkgs, ...}:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   options = {
-
   };
 
   config = {
@@ -9,10 +11,8 @@
       libnotify
     ];
 
-
     services.mako.enable = true;
     services.mako.catppuccin.enable = true;
-
 
     services.mako.extraConfig = ''
       [mode=default]

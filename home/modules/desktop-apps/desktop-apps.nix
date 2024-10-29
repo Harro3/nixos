@@ -1,7 +1,9 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   options = {
-
   };
 
   config = {
@@ -13,15 +15,17 @@
 
     programs.firefox = {
       enable = true;
-      languagePacks = [ "de" "en-US" ];
+      languagePacks = ["de" "en-US"];
 
-      /* ---- POLICIES ---- */
+      /*
+      ---- POLICIES ----
+      */
       # Check about:policies#documentation for options.
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
-          Value= true;
+          Value = true;
           Locked = true;
           Cryptomining = true;
           Fingerprinting = true;
@@ -37,7 +41,9 @@
         DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
         SearchBar = "unified"; # alternative: "separate"
 
-        /* ---- EXTENSIONS ---- */
+        /*
+        ---- EXTENSIONS ----
+        */
         # Check about:support for extension/add-on ID strings.
         # Valid strings for installation_mode are "allowed", "blocked",
         # "force_installed" and "normal_installed".
