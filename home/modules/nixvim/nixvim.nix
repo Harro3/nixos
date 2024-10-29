@@ -1,10 +1,9 @@
 { inputs, pkgs, ...}:
 {
-  options = {
+  imports = [
+    ./options/options.nix
+    ./options/clipboard.nix
+  ];
 
-  };
-
-  config = {
-    programs.nixvim.enable = true;
-  };
+  programs.nixvim.enable = true;
 }
