@@ -21,6 +21,8 @@
     HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
   };
 
+  virtualisation.docker.enable = true;
+
   # Security for hyprlock
   security.pam.services.hyprlock = {
 };
@@ -56,6 +58,7 @@
       "harro".imports = [
         ./home/home.nix
         inputs.catppuccin.homeManagerModules.catppuccin
+        inputs.nixvim.homeManagerModules.nixvim
       ];
     };
   };

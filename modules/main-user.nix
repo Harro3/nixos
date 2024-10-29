@@ -8,7 +8,7 @@
     users.users.harro = {
       isNormalUser = true;
       description = "Harro";
-      extraGroups = [ "networkmanager" "wheel" "audio" "sound" ];
+      extraGroups = [ "networkmanager" "wheel" "audio" "sound" "docker" ];
       packages = with pkgs; [];
       shell = pkgs.zsh;
     };

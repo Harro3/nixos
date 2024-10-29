@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs,  ... }:
 
 {
   imports = [
@@ -10,7 +10,8 @@
     ./modules/shell/tmux.nix
     ./modules/shell/sesh.nix
     
-    ./modules/nvim/nvim.nix
+    # ./modules/nvim/nvim.nix
+    ./modules/nixvim/nixvim.nix
 
     ./modules/wofi/wofi.nix
 
@@ -24,6 +25,7 @@
 
   ];
 
+
   home.username = "harro";
   home.homeDirectory = "/home/harro";
 
@@ -31,6 +33,7 @@
   nixpkgs.config.allowBroken = true;
 
   wallpaper = ./wallpapers/mountains.jpg;
+
 
   home.packages = with pkgs;[
     lazygit
