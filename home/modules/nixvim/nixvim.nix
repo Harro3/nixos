@@ -19,9 +19,14 @@
     # ./plugins/global/copilot.nix
     ./plugins/global/plenary.nix
     ./plugins/global/git.nix
+    ./plugins/global/image.nix
+    ./plugins/global/lualine.nix
+    ./plugins/global/neogen.nix
+    ./plugins/global/noice.nix
 
     ./plugins/languages/nix.nix
     ./plugins/languages/c.nix
+    ./plugins/languages/markdown.nix
   ];
 
   programs.nixvim.enable = true;
