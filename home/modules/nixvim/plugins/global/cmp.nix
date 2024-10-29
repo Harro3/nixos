@@ -19,11 +19,7 @@ in
             css = ["prettier"];
             html = ["prettier"];
             json = ["prettier"];
-            just = ["just"];
             lua = ["stylua"];
-            c = ["clang-format"];
-            markdown = ["prettier"];
-            nix = ["alejandra"];
           };
         };
       };
