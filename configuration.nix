@@ -1,16 +1,17 @@
-{ pkgs, inputs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
 
-      ./modules/bootloader.nix
-      ./modules/greetd.nix
-      ./modules/pulseaudio.nix
-      ./modules/caps2esc.nix
-      ./modules/main-user.nix
-    ];
+    ./modules/bootloader.nix
+    ./modules/greetd.nix
+    ./modules/pulseaudio.nix
+    ./modules/caps2esc.nix
+    ./modules/main-user.nix
+  ];
 
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
@@ -25,12 +26,12 @@
 
   # Security for hyprlock
   security.pam.services.hyprlock = {
-};
+  };
   programs.hyprlock.enable = true;
 
   programs.hyprland.enable = true;
   programs.xwayland.enable = true;
-  nix.settings.experimental-features = ["nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "harro-legion";
   networking.networkmanager.enable = true;
@@ -50,10 +51,9 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-
   programs.zsh.enable = true;
   home-manager = {
-    extraSpecialArgs = {inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "harro".imports = [
         ./home/home.nix
@@ -81,5 +81,4 @@
   services.openssh.enable = true;
 
   system.stateVersion = "24.05";
-
 }
