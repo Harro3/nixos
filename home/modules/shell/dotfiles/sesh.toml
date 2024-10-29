@@ -7,8 +7,8 @@ path='~/Downloads'
 startup_command='ls'
 
 [[session]]
-name='Neovim Config '
-path='~/nixos/home/modules/nvim/dotfiles'
+name='Vim Config '
+path='~/nixos/home/modules/nixvim'
 
 [[session]]
 name='Nixos Config '

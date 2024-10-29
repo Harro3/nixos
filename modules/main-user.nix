@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   options = {
   };
 
@@ -11,7 +7,7 @@
       isNormalUser = true;
       description = "Harro";
       extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker"];
-      packages = with pkgs; [];
+      packages = [];
       shell = pkgs.zsh;
     };
   };

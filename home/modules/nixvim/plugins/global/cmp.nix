@@ -1,7 +1,7 @@
 let
   selectOpts = "{behavior = cmp.SelectBehavior.Select}";
 in
-  {pkgs, ...}: {
+  {...}: {
     programs.nixvim = {
       plugins.cmp-buffer.enable = true;
       plugins.cmp-path.enable = true;

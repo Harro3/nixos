@@ -1,9 +1,7 @@
-{ inputs, pkgs, ... }:
-{
+{pkgs, ...}: {
   options = {
-    
   };
-   
+
   config = {
     home.packages = with pkgs; [
       zsh
@@ -24,6 +22,5 @@
 
     home.file.".zshrc".source = ./dotfiles/.zshrc;
     home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;
-
   };
 }
