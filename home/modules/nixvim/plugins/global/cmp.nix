@@ -1,17 +1,15 @@
-
-let selectOpts = "{behavior = cmp.SelectBehavior.Select}";
+let
+  selectOpts = "{behavior = cmp.SelectBehavior.Select}";
 in
-{pkgs, ...}:
-{
+  {pkgs, ...}: {
+    programs.nixvim = {
+      plugins.cmp-nvim-lsp.enable = true;
+      plugins.cmp-buffer.enable = true;
+      plugins.cmp-path.enable = true;
+      plugins.cmp-treesitter.enable = true;
+      plugins.dap.enable = true;
 
-  programs.nixvim = {
-    plugins.cmp-nvim-lsp.enable = true;
-    plugins.cmp-buffer.enable = true;
-    plugins.cmp-path.enable = true;
-    plugins.cmp-treesitter.enable = true;
-    plugins.dap.enable = true;
-
-    plugins.conform-nvim = {
+      plugins.conform-nvim = {
         enable = true;
         settings = {
           format_on_save = {
@@ -19,32 +17,33 @@ in
             timeout_ms = 500;
           };
           notify_on_error = true;
-            formatters_by_ft = {
-              css = ["prettier"];
-              html = ["prettier"];
-              json = ["prettier"];
-              just = ["just"];
-              lua = ["stylua"];
-              c = ["clang-format"];
-              markdown = ["prettier"];
-              nix = ["alejandra"];
-            };
+          formatters_by_ft = {
+            css = ["prettier"];
+            html = ["prettier"];
+            json = ["prettier"];
+            just = ["just"];
+            lua = ["stylua"];
+            c = ["clang-format"];
+            markdown = ["prettier"];
+            nix = ["alejandra"];
+          };
         };
       };
 
-    plugins.cmp = {
-      enable = true;
-      settings = {
-        performance = {
+      plugins.cmp = {
+        enable = true;
+        settings = {
+          performance = {
             debounce = 150;
           };
-        autoEnableSources = true;
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-        ];
-        formatting = {
+          autoEnableSources = true;
+          sources = [
+            {name = "nvim_lsp";}
+            {name = "path";}
+            {name = "buffer";}
+            {name = "luasnip";}
+          ];
+          formatting = {
             fields = [
               "menu"
               "abbr"
@@ -64,7 +63,7 @@ in
               end
             '';
           };
-        snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+          snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
 
           mapping = {
             "<Up>" = "cmp.mapping.select_prev_item(${selectOpts})";
@@ -136,7 +135,7 @@ in
               )
             '';
           };
+        };
       };
     };
-  };
-}
+  }
