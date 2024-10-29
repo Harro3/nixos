@@ -23,6 +23,7 @@
     ./plugins/global/surround.nix
     ./plugins/global/telescope.nix
     ./plugins/global/which-key.nix
+    ./plugins/global/oil.nix
 
     ./plugins/languages/nix.nix
     ./plugins/languages/c.nix
