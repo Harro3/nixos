@@ -1,6 +1,15 @@
-{...}: {
-  # programs.nixvim.plugins.conform-nvim.settings.fornatters_by_ft.c = ["clang-format"];
-  programs.nixvim.plugins.lsp.servers.yamlls = {
-    enable = true;
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    yaml.enable = lib.mkEnableOption "yaml language";
+  };
+
+  config = lib.mkIf config.yaml.enable {
+    programs.nixvim.plugins.lsp.servers.yamlls = {
+      enable = true;
+    };
   };
 }

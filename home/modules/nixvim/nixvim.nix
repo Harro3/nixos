@@ -28,6 +28,7 @@
 
     ./plugins/languages/c.nix
     ./plugins/languages/css.nix
+    ./plugins/languages/docker.nix
     ./plugins/languages/html.nix
     ./plugins/languages/json.nix
     ./plugins/languages/markdown.nix
@@ -40,5 +41,15 @@
 
   programs.nixvim.enable = true;
 
-  # Extra plugins (no config needed)
+  c.enable = true;
+  css.enable = true;
+  docker.enable = true;
+  html.enable = true;
+  json.enable = true;
+  markdown.enable = true;
+  nixLang.enable = true;
+  obsidian.enable = true;
+  python.enable = true;
+  xml.enable = true;
+  yaml.enable = true;
 }

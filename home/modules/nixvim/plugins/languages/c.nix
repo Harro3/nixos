@@ -1,10 +1,21 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    clang-tools
-  ];
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    c.enable = lib.mkEnableOption "c language";
+  };
 
-  programs.nixvim.plugins.conform-nvim.settings.fornatters_by_ft.c = ["clang-format"];
-  programs.nixvim.plugins.lsp.servers.clangd = {
-    enable = true;
+  config = lib.mkIf config.c.enable {
+    home.packages = with pkgs; [
+      clang-tools
+    ];
+
+    programs.nixvim.plugins.conform-nvim.settings.fornatters_by_ft.c = ["clang-format"];
+    programs.nixvim.plugins.lsp.servers.clangd = {
+      enable = true;
+    };
   };
 }

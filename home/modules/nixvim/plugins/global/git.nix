@@ -1,4 +1,7 @@
-{...}: {
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    lazygit
+  ];
   programs.nixvim = {
     keymaps = [
       # {
