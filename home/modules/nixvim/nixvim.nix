@@ -40,6 +40,7 @@
     ./plugins/languages/ts.nix
     ./plugins/languages/xml.nix
     ./plugins/languages/yaml.nix
+    ./plugins/languages/bash.nix
   ];
 
   programs.nixvim.enable = true;
@@ -58,4 +59,5 @@
   ts.enable = true;
   xml.enable = true;
   yaml.enable = true;
+  bash.enable = true;
 }
