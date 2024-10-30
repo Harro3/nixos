@@ -1,5 +1,5 @@
 {config, ...}: let
-  languages = ["c"];
+  languages = ["c" "bash" "sh"];
 in {
   programs.nixvim = {
     plugins.otter = {
