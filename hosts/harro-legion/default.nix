@@ -6,10 +6,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/bootloader.nix
-    ../../modules/caps2esc.nix
-    ../../modules/greetd.nix
-    ../../modules/pulseaudio.nix
+    ../../modules
   ];
 
   catppuccin.enable = true;
