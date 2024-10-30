@@ -30,6 +30,7 @@
     ./plugins/languages/css.nix
     ./plugins/languages/docker.nix
     ./plugins/languages/html.nix
+    ./plugins/languages/java.nix
     ./plugins/languages/json.nix
     ./plugins/languages/markdown.nix
     ./plugins/languages/nix.nix
@@ -45,6 +46,7 @@
   css.enable = true;
   docker.enable = true;
   html.enable = true;
+  java.enable = true;
   json.enable = true;
   markdown.enable = true;
   nixLang.enable = true;
