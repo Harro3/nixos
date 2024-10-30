@@ -27,6 +27,7 @@
     ./plugins/global/otter.nix
 
     ./plugins/languages/c.nix
+    ./plugins/languages/coq.nix
     ./plugins/languages/css.nix
     ./plugins/languages/docker.nix
     ./plugins/languages/html.nix
@@ -44,6 +45,7 @@
   programs.nixvim.enable = true;
 
   c.enable = true;
+  coq.enable = true;
   css.enable = true;
   docker.enable = true;
   html.enable = true;
