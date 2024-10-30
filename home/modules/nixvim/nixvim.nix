@@ -36,6 +36,7 @@
     ./plugins/languages/nix.nix
     ./plugins/languages/obsidian.nix
     ./plugins/languages/python.nix
+    ./plugins/languages/ts.nix
     ./plugins/languages/xml.nix
     ./plugins/languages/yaml.nix
   ];
@@ -52,6 +53,7 @@
   nixLang.enable = true;
   obsidian.enable = true;
   python.enable = true;
+  ts.enable = true;
   xml.enable = true;
   yaml.enable = true;
 }
