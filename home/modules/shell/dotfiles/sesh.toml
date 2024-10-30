@@ -1,5 +1,5 @@
 [default_session]
-startup_command = 'tmux rename-window editor && nvim'
+startup_command = 'nvim'
 
 [[session]]
 name='Downloads ' 
