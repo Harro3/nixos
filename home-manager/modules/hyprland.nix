@@ -319,9 +319,9 @@ in {
       bind = $mainMod, Space, togglefloating,
 
       # wofi
-      bind = $mainMod, D, exec, sh -c "wofi --show drun"
-      bind = $mainMod, R, exec, sh -c "wofi --show run"
-      bind = $mainMod, M, exec, sh -c "echo -n $(${lib.getExe wofiEmojiScript} | wofi --dmenu 2> /dev/null | cut -d' ' -f2) | wl-copy"
+      bind = $mainMod, D, exec, wofi --show drun
+      bind = $mainMod, R, exec, wofi --show run
+      bind = $mainMod, M, exec, echo -n $(${lib.getExe wofiEmojiScript} | wofi --dmenu 2> /dev/null | cut -d' ' -f2) | wl-copy
 
       # bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, T, togglesplit, # dwindle
