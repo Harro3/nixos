@@ -1,8 +1,13 @@
-{...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   options = {
+    hypridle.enable = lib.mkEnableOption "hypridle";
   };
 
-  config = {
+  config = lib.mkIf config.hypridle.enable {
     services.hypridle.enable = true;
     services.hypridle.settings = {
       general = {

@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
+    wofi.enable = lib.mkEnableOption "wofi";
   };
 
-  config = {
+  config = lib.mkIf config.wofi.enable {
     home.packages = with pkgs; [
       wofi
     ];

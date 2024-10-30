@@ -1,8 +1,13 @@
-{...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   options = {
+    kitty.enable = lib.mkEnableOption "kitty";
   };
 
-  config = {
+  config = lib.mkIf config.kitty.enable {
     home.file.".config/kitty/kitty.conf".text = ''
       # The basic colors
       foreground              #cdd6f4

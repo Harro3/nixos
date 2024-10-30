@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   volumeScript = pkgs.writeShellApplication {
@@ -125,9 +126,10 @@
   };
 in {
   options = {
+    hyprland.enable = lib.mkEnableOption "hyprland";
   };
 
-  config = {
+  config = lib.mkIf config.hyprland.enable {
     home.packages = with pkgs; [
       hyprshot
     ];

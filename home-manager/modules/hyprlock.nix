@@ -1,8 +1,13 @@
-{...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   options = {
+    hyprlock.enable = lib.mkEnableOption "hyprlock";
   };
 
-  config = {
+  config = lib.mkIf config.hyprlock.enable {
     programs.hyprlock = {
       enable = true;
       catppuccin.enable = true;

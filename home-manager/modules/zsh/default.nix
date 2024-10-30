@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
+    zsh.enable = lib.mkEnableOption "zsh";
   };
 
-  config = {
+  config = lib.mkIf config.zsh.enable {
     home.packages = with pkgs; [
       zsh
       btop

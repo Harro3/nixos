@@ -1,45 +1,52 @@
 {pkgs, ...}: {
   imports = [
-    ../../home-manager/modules/desktop-apps/desktop-apps.nix
-
-    ../../home-manager/modules/kitty/kitty.nix
-
-    ../../home-manager/modules/shell/zsh.nix
-    ../../home-manager/modules/shell/tmux.nix
-    ../../home-manager/modules/shell/sesh.nix
-
-    ../../home-manager/modules/nixvim/nixvim.nix
-
-    ../../home-manager/modules/wofi/wofi.nix
-
-    ../../home-manager/modules/waybar/waybar.nix
-
-    ../../home-manager/modules/hyprland/hyprland.nix
-    ../../home-manager/modules/hyprland/hypridle.nix
-    ../../home-manager/modules/hyprland/hyprpaper.nix
-    ../../home-manager/modules/hyprland/hyprlock.nix
-    ../../home-manager/modules/hyprland/mako.nix
+    ../../home-manager/modules
   ];
 
+  # Modules
+  firefox.enable = true;
+  hypridle.enable = true;
+  hyprland.enable = true;
+  hyprlock.enable = true;
+  hyprpaper.enable = true;
+  mako.enable = true;
+  kitty.enable = true;
+  wofi.enable = true;
+  waybar.enable = true;
+  zsh.enable = true;
+  sesh.enable = true;
+  tmux.enable = true;
+  nixvim.enable = true;
+
+  # Misc config
   home.username = "harro";
   home.homeDirectory = "/home/harro";
+  wallpaper = ../../home-manager/wallpapers/mountains.jpg;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
 
-  wallpaper = ../../home-manager/wallpapers/mountains.jpg;
-
+  # Deps
   home.packages = with pkgs; [
-    lazygit
+    # Desktop
+    libreoffice
+    slack
+    discord
+    spotify
+
+    # Utils
     unzip
     zathura
-    libreoffice
     wl-clipboard
-    nh
     nerdfonts
     jq
-    prettierd
 
+    # Workflow
+    lazygit
+    nh
+
+    # Dev
+    prettierd
     cmake
     gnumake
     gcc

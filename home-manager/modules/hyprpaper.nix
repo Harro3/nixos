@@ -5,6 +5,7 @@
   ...
 }: {
   options = {
+    hyprpaper.enable = lib.mkEnableOption "hyprpaper";
     wallpaper = lib.mkOption {
       type = lib.types.path;
       description = ''
@@ -13,7 +14,7 @@
     };
   };
 
-  config = {
+  config = lib.mkIf config.hyprpaper.enable {
     home.packages = with pkgs; [
       hyprpaper
     ];

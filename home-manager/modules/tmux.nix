@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
+    tmux.enable = lib.mkEnableOption "tmux";
   };
 
-  config = {
+  config = lib.mkIf config.tmux.enable {
     home.packages = with pkgs; [
       tmux
     ];
