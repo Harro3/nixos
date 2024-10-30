@@ -33,18 +33,12 @@
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";
         DontCheckDefaultBrowser = true;
-        DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
-        DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
-        SearchBar = "unified"; # alternative: "separate"
+        DisplayBookmarksToolbar = "never";
+        DisplayMenuBar = "default-off";
+        SearchBar = "unified";
 
-        /*
-        ---- EXTENSIONS ----
-        */
-        # Check about:support for extension/add-on ID strings.
-        # Valid strings for installation_mode are "allowed", "blocked",
-        # "force_installed" and "normal_installed".
         ExtensionSettings = {
-          # "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
           # Bitwarden
           "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
@@ -53,6 +47,12 @@
           # Catppuccin
           "{8446b178-c865-4f5c-8ccc-1d7887811ae3}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-lavender-git/latest.xpi";
+            installation_mode = "force_installed";
+          };
+
+          # Vimium
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
             installation_mode = "force_installed";
           };
         };
