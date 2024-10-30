@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
+    greetd.enable = lib.mkEnableOption "greetd";
   };
 
-  config = {
+  config = lib.mkIf config.greetd.enable {
     services.greetd = {
       enable = true;
       vt = 7;

@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
+    caps2esc.enable = lib.mkEnableOption "caps2esc";
   };
 
-  config = {
+  config = lib.mkIf config.caps2esc.enable {
     services.interception-tools = let
       itools = pkgs.interception-tools;
       itools-caps = pkgs.interception-tools-plugins.caps2esc;

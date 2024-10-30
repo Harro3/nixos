@@ -1,8 +1,13 @@
-{...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   options = {
+    bootloader.enable = lib.mkEnableOption "bootloader";
   };
 
-  config = {
+  config = lib.mkIf config.bootloader.enable {
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.grub.efiSupport = true;
     boot.loader.grub.enable = true;

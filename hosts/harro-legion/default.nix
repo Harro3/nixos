@@ -9,47 +9,39 @@
     ../../modules
   ];
 
-  catppuccin.enable = true;
-  catppuccin.flavor = "mocha";
-
+  # Global session vars
   environment.sessionVariables = {
     FLAKE = "/home/harro/nixos";
     NIXOS_OZONE_WL = "1";
     HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
   };
 
-  virtualisation.docker.enable = true;
+  # Modules
+  catppuccin.enable = true;
+  bootloader.enable = true;
+  caps2esc.enable = true;
+  greetd.enable = true;
+  locales.enable = true;
 
-  # Security for hyprlock
-  security.pam.services.hyprlock = {
-  };
+  # Programs
   programs.hyprlock.enable = true;
-
   programs.hyprland.enable = true;
   programs.xwayland.enable = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  programs.zsh.enable = true;
 
+  # Services
+  virtualisation.docker.enable = true;
   hardware.bluetooth.enable = true;
+  services.openssh.enable = true;
+
+  # Misc config
+  catppuccin.flavor = "mocha";
+  security.pam.services.hyprlock = {};
 
   networking.hostName = "harro-legion";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
-  };
-
-  programs.zsh.enable = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   users.users.harro = {
     isNormalUser = true;
@@ -59,6 +51,9 @@
     shell = pkgs.zsh;
   };
 
+  nixpkgs.config.allowUnfree = true;
+
+  # Main user
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
@@ -70,8 +65,7 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-
+  # System wide packages
   environment.systemPackages = with pkgs; [
     bluez
     playerctl
@@ -85,8 +79,6 @@
     pulseaudio
     pavucontrol
   ];
-
-  services.openssh.enable = true;
 
   system.stateVersion = "24.05";
 }
