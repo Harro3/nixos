@@ -15,12 +15,6 @@ in
             timeout_ms = 500;
           };
           notify_on_error = true;
-          formatters_by_ft = {
-            css = ["prettier"];
-            html = ["prettier"];
-            json = ["prettier"];
-            lua = ["stylua"];
-          };
         };
       };
 

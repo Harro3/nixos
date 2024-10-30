@@ -39,8 +39,8 @@
     nh
     nerdfonts
     jq
+    prettierd
 
-    lua
     cmake
     gnumake
     gcc
@@ -52,10 +52,6 @@
     docker-compose
     jdk17
     clang-tools
-    # clang
-    texlab
-    pandoc
-    texlivePackages.latexmk
   ];
 
   home.stateVersion = "24.05";

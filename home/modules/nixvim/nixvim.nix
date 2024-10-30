@@ -26,10 +26,16 @@
     ./plugins/global/oil.nix
     ./plugins/global/otter.nix
 
-    ./plugins/languages/nix.nix
     ./plugins/languages/c.nix
+    ./plugins/languages/css.nix
+    ./plugins/languages/html.nix
+    ./plugins/languages/json.nix
     ./plugins/languages/markdown.nix
+    ./plugins/languages/nix.nix
     ./plugins/languages/obsidian.nix
+    ./plugins/languages/python.nix
+    ./plugins/languages/xml.nix
+    ./plugins/languages/yaml.nix
   ];
 
   programs.nixvim.enable = true;
