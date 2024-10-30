@@ -13,6 +13,7 @@
       coq
       coqPackages.coq-lsp
       coqPackages.serapi
+      coqPackages.coqutil
     ];
 
     programs.nixvim.extraPlugins = with pkgs.vimPlugins; [

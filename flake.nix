@@ -25,7 +25,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./hosts/harro-legion
         inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.default
       ];

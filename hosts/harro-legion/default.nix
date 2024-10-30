@@ -6,11 +6,10 @@
   imports = [
     ./hardware-configuration.nix
 
-    ./modules/bootloader.nix
-    ./modules/greetd.nix
-    ./modules/pulseaudio.nix
-    ./modules/caps2esc.nix
-    ./modules/main-user.nix
+    ../../modules/bootloader.nix
+    ../../modules/caps2esc.nix
+    ../../modules/greetd.nix
+    ../../modules/pulseaudio.nix
   ];
 
   catppuccin.enable = true;
@@ -54,11 +53,20 @@
   };
 
   programs.zsh.enable = true;
+
+  users.users.harro = {
+    isNormalUser = true;
+    description = "Harro";
+    extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker"];
+    packages = [];
+    shell = pkgs.zsh;
+  };
+
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
       "harro".imports = [
-        ./home/home.nix
+        ./home.nix
         inputs.catppuccin.homeManagerModules.catppuccin
         inputs.nixvim.homeManagerModules.nixvim
       ];
