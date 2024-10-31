@@ -24,7 +24,7 @@
 
       [[session]]
       name='Vim Config '
-      path='~/nixos/home/modules/nixvim'
+      path='~/nixos/home-manager/modules/nixvim'
 
       [[session]]
       name='Nixos Config '
@@ -32,7 +32,7 @@
 
       [[session]]
       name="Home Manager Config "
-      path="~/nixos/home/"
+      path="~/nixos/home-manager/"
 
       [[session]]
       name="Harro Docs "
