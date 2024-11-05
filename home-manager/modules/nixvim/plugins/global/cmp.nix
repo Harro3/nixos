@@ -64,8 +64,7 @@ in
             "<C-d>" = "cmp.mapping.scroll_docs(4)";
 
             "<C-e>" = "cmp.mapping.abort()";
-            "<C-y>" = "cmp.mapping.confirm({select = true})";
-            "<CR>" = "cmp.mapping.confirm({select = false})";
+            "<CR>" = "cmp.mapping.confirm({select = true})";
 
             "<C-f>" = ''
               cmp.mapping(
@@ -96,31 +95,26 @@ in
             "<Tab>" = ''
               cmp.mapping(
                 function(fallback)
-                  local col = vim.fn.col('.') - 1
-
-                  if cmp.visible() then
-                    cmp.select_next_item(select_opts)
-                  elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                    fallback()
-                  else
-                    cmp.complete()
-                  end
-                end,
-                { "i", "s" }
-              )
+                    if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif require('luasnip').expand_or_jumpable() then
+                            require('luasnip').expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" })
             '';
 
             "<S-Tab>" = ''
-              cmp.mapping(
-                function(fallback)
-                  if cmp.visible() then
-                    cmp.select_prev_item(select_opts)
-                  else
-                    fallback()
-                  end
-                end,
-                { "i", "s" }
-              )
+              cmp.mapping(function(fallback)
+                      if cmp.visible() then
+                          cmp.select_prev_item()
+                      elseif require('luasnip').jumpable(-1) then
+                          require('luasnip').jump(-1)
+                      else
+                          fallback()
+                      end
+                  end, { "i", "s" })
             '';
           };
         };

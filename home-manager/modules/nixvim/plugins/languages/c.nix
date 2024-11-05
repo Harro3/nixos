@@ -14,6 +14,7 @@
     ];
 
     programs.nixvim.plugins.conform-nvim.settings.fornatters_by_ft.c = ["clang-format"];
+    programs.nixvim.plugins.conform-nvim.settings.fornatters_by_ft.cpp = ["clang-format"];
     programs.nixvim.plugins.lsp.servers.clangd = {
       enable = true;
     };
