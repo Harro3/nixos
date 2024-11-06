@@ -5,18 +5,10 @@ in
     programs.nixvim = {
       plugins.cmp-buffer.enable = true;
       plugins.cmp-path.enable = true;
-      plugins.dap.enable = true;
-
-      plugins.conform-nvim = {
-        enable = true;
-        settings = {
-          format_on_save = {
-            lsp_fallback = "fallback";
-            timeout_ms = 500;
-          };
-          notify_on_error = true;
-        };
-      };
+      plugins.cmp-latex-symbols.enable = true;
+      plugins.cmp-nvim-lsp.enable = true;
+      plugins.cmp-emoji.enable = true;
+      plugins.cmp-treesitter.enable = true;
 
       plugins.cmp = {
         enable = true;
@@ -30,6 +22,9 @@ in
             {name = "path";}
             {name = "buffer";}
             {name = "luasnip";}
+            {name = "emoji";}
+            {name = "latex_symbols";}
+            {name = "treesitter";}
           ];
           formatting = {
             fields = [
@@ -44,6 +39,9 @@ in
                   luasnip = '[SNIP]',
                   buffer = '[BUF]',
                   path = '[PATH]',
+                  emoji = '[EMOJI]',
+                  latex_symbols = '[LATEX]',
+                  treesitter = '[TREE]',
                 }
 
                 item.menu = menu_icon[entry.source.name]

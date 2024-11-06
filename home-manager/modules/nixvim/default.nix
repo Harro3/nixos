@@ -20,7 +20,7 @@
     c.enable = true;
     coq.enable = true;
     css.enable = true;
-    cuda.enable = true;
+    cuda.enable = false;
     docker.enable = true;
     html.enable = true;
     java.enable = true;

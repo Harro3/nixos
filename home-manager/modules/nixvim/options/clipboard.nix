@@ -6,7 +6,7 @@ _: {
         key = "<leader>y";
         action = ''"+y'';
         options = {
-          desc = "Yank into \" register";
+          desc = "Yank into clipboard";
           silent = true;
         };
       }
@@ -15,7 +15,7 @@ _: {
         key = "<leader>y";
         action = ''"+y'';
         options = {
-          desc = "Yank into \" register";
+          desc = "Yank into clipboard";
           silent = true;
         };
       }
@@ -24,7 +24,7 @@ _: {
         key = "<leader>Y";
         action = ''"+Y'';
         options = {
-          desc = "Yank into \" register";
+          desc = "Yank into clipboard";
           silent = true;
         };
       }
@@ -33,7 +33,7 @@ _: {
         key = "<leader>p";
         action = ''"+p'';
         options = {
-          desc = "Paste \" register";
+          desc = "Paste clipboard";
           silent = true;
         };
       }
@@ -42,7 +42,7 @@ _: {
         key = "<leader>p";
         action = ''"+p'';
         options = {
-          desc = "Paste \" register";
+          desc = "Paste clipboard";
           silent = true;
         };
       }
@@ -51,25 +51,25 @@ _: {
         key = "<leader>P";
         action = ''"+P'';
         options = {
-          desc = "Paste \" register";
+          desc = "Paste clipboard";
           silent = true;
         };
       }
       {
         mode = "n";
         key = "<leader>d";
-        action = ''"_d'';
+        action = ''"+d'';
         options = {
-          desc = "Delete into \" register";
+          desc = "Delete into clipboard";
           silent = true;
         };
       }
       {
         mode = "v";
         key = "<leader>d";
-        action = ''"_d'';
+        action = ''"+d'';
         options = {
-          desc = "Delete into \" register";
+          desc = "Delete into clipboard";
           silent = true;
         };
       }
