@@ -22,6 +22,7 @@
           action = ":PasteImg<CR>";
           options = {
             desc = "Paste Image";
+            silent = true;
           };
         }
       ];
