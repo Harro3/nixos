@@ -1,11 +1,21 @@
-{...}: {
-  programs.nixvim = {
-    plugins.treesitter = {
-      enable = true;
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    treesitter.enable = lib.mkEnableOption "treesitter";
+  };
 
-      settings = {
-        auto_install = true;
-        highlight.enable = true;
+  config = lib.mkIf config.treesitter.enable {
+    programs.nixvim = {
+      plugins.treesitter = {
+        enable = true;
+
+        settings = {
+          auto_install = true;
+          highlight.enable = true;
+        };
       };
     };
   };

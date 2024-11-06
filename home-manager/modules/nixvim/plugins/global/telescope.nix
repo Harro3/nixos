@@ -1,33 +1,44 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    ripgrep
-  ];
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    telescope.enable = lib.mkEnableOption "telescope";
+  };
 
-  programs.nixvim = {
-    plugins.telescope = {
-      enable = true;
+  config = lib.mkIf config.telescope.enable {
+    home.packages = with pkgs; [
+      ripgrep
+    ];
 
-      extensions.ui-select = {
-      enable = true;
-      };
+    programs.nixvim = {
+      plugins.telescope = {
+        enable = true;
 
-      keymaps = {
-        "<leader>ff" = {
-          action = "find_files";
-          options = {
-            desc = "Find Files";
-          };
+        extensions.ui-select = {
+          enable = true;
         };
-        "<leader>fg" = {
-          action = "live_grep";
-          options = {
-            desc = "Live Grep";
+
+        keymaps = {
+          "<leader>ff" = {
+            action = "find_files";
+            options = {
+              desc = "Find Files";
+            };
           };
-        };
-        "<leader>fb" = {
-          action = "buffers";
-          options = {
-            desc = "Find Buffers";
+          "<leader>fg" = {
+            action = "live_grep";
+            options = {
+              desc = "Live Grep";
+            };
+          };
+          "<leader>fb" = {
+            action = "buffers";
+            options = {
+              desc = "Find Buffers";
+            };
           };
         };
       };

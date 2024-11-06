@@ -14,7 +14,7 @@
   wofi.enable = true;
   waybar.enable = true;
   zsh.enable = true;
-  sesh.enable = true;
+  sesh.enable = false;
   tmux.enable = true;
   nixvim.enable = true;
 

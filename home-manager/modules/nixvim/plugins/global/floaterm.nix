@@ -1,10 +1,20 @@
-{...}: {
-  programs.nixvim = {
-    plugins.floaterm = {
-      enable = true;
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    floaterm.enable = lib.mkEnableOption "floaterm";
+  };
 
-      keymaps.toggle = "<leader>flt";
-      keymaps.new = "<leader>ft";
+  config = lib.mkIf config.floaterm.enable {
+    programs.nixvim = {
+      plugins.floaterm = {
+        enable = true;
+
+        keymaps.toggle = "<leader>flt";
+        keymaps.new = "<leader>ft";
+      };
     };
   };
 }

@@ -8,7 +8,6 @@
   };
   config = lib.mkIf config.ts.enable {
     programs.nixvim.plugins.none-ls.sources.formatting.prettier.disableTsServerFormatter = true;
-    programs.nixvim.plugins.conform-nvim.settings.fornatters_by_ft.ts = ["prettier"];
     programs.nixvim.plugins.lsp.servers.ts_ls = {
       enable = true;
 

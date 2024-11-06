@@ -1,119 +1,129 @@
 let
   selectOpts = "{behavior = cmp.SelectBehavior.Select}";
 in
-  {...}: {
-    programs.nixvim = {
-      plugins.cmp-buffer.enable = true;
-      plugins.cmp-path.enable = true;
-      plugins.cmp-latex-symbols.enable = true;
-      plugins.cmp-nvim-lsp.enable = true;
-      plugins.cmp-emoji.enable = true;
-      plugins.cmp-treesitter.enable = true;
+  {
+    lib,
+    config,
+    ...
+  }: {
+    options = {
+      cmp.enable = lib.mkEnableOption "cmp";
+    };
 
-      plugins.cmp = {
-        enable = true;
-        settings = {
-          performance = {
-            debounce = 150;
-          };
-          autoEnableSources = true;
-          sources = [
-            {name = "nvim_lsp";}
-            {name = "path";}
-            {name = "buffer";}
-            {name = "luasnip";}
-            {name = "emoji";}
-            {name = "latex_symbols";}
-            {name = "treesitter";}
-          ];
-          formatting = {
-            fields = [
-              "menu"
-              "abbr"
-              "kind"
+    config = lib.mkIf config.cmp.enable {
+      programs.nixvim = {
+        plugins.cmp-buffer.enable = true;
+        plugins.cmp-path.enable = true;
+        plugins.cmp-latex-symbols.enable = true;
+        plugins.cmp-nvim-lsp.enable = true;
+        plugins.cmp-emoji.enable = true;
+        plugins.cmp-treesitter.enable = true;
+
+        plugins.cmp = {
+          enable = true;
+          settings = {
+            performance = {
+              debounce = 150;
+            };
+            autoEnableSources = true;
+            sources = [
+              {name = "nvim_lsp";}
+              {name = "path";}
+              {name = "buffer";}
+              {name = "luasnip";}
+              {name = "emoji";}
+              {name = "latex_symbols";}
+              {name = "treesitter";}
             ];
-            format = ''
-              function(entry, item)
-                local menu_icon = {
-                  nvim_lsp = '[LSP]',
-                  luasnip = '[SNIP]',
-                  buffer = '[BUF]',
-                  path = '[PATH]',
-                  emoji = '[EMOJI]',
-                  latex_symbols = '[LATEX]',
-                  treesitter = '[TREE]',
-                }
+            formatting = {
+              fields = [
+                "menu"
+                "abbr"
+                "kind"
+              ];
+              format = ''
+                function(entry, item)
+                  local menu_icon = {
+                    nvim_lsp = '[LSP]',
+                    luasnip = '[SNIP]',
+                    buffer = '[BUF]',
+                    path = '[PATH]',
+                    emoji = '[EMOJI]',
+                    latex_symbols = '[LATEX]',
+                    treesitter = '[TREE]',
+                  }
 
-                item.menu = menu_icon[entry.source.name]
-                return item
-              end
-            '';
-          };
-          snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+                  item.menu = menu_icon[entry.source.name]
+                  return item
+                end
+              '';
+            };
+            snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
 
-          mapping = {
-            "<Up>" = "cmp.mapping.select_prev_item(${selectOpts})";
-            "<Down>" = "cmp.mapping.select_next_item(${selectOpts})";
+            mapping = {
+              "<Up>" = "cmp.mapping.select_prev_item(${selectOpts})";
+              "<Down>" = "cmp.mapping.select_next_item(${selectOpts})";
 
-            "<C-p>" = "cmp.mapping.select_prev_item(${selectOpts})";
-            "<C-n>" = "cmp.mapping.select_next_item(${selectOpts})";
+              "<C-p>" = "cmp.mapping.select_prev_item(${selectOpts})";
+              "<C-n>" = "cmp.mapping.select_next_item(${selectOpts})";
 
-            "<C-u>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-d>" = "cmp.mapping.scroll_docs(4)";
+              "<C-u>" = "cmp.mapping.scroll_docs(-4)";
+              "<C-d>" = "cmp.mapping.scroll_docs(4)";
 
-            "<C-e>" = "cmp.mapping.abort()";
-            "<CR>" = "cmp.mapping.confirm({select = true})";
+              "<C-e>" = "cmp.mapping.abort()";
+              "<CR>" = "cmp.mapping.confirm({select = true})";
 
-            "<C-f>" = ''
-              cmp.mapping(
-                function(fallback)
-                  if luasnip.jumpable(1) then
-                    luasnip.jump(1)
-                  else
-                    fallback()
-                  end
-                end,
-                { "i", "s" }
-              )
-            '';
+              "<C-f>" = ''
+                cmp.mapping(
+                  function(fallback)
+                    if luasnip.jumpable(1) then
+                      luasnip.jump(1)
+                    else
+                      fallback()
+                    end
+                  end,
+                  { "i", "s" }
+                )
+              '';
 
-            "<C-b>" = ''
-              cmp.mapping(
-                function(fallback)
-                  if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                  else
-                    fallback()
-                  end
-                end,
-                { "i", "s" }
-              )
-            '';
+              "<C-b>" = ''
+                cmp.mapping(
+                  function(fallback)
+                    if luasnip.jumpable(-1) then
+                      luasnip.jump(-1)
+                    else
+                      fallback()
+                    end
+                  end,
+                  { "i", "s" }
+                )
+              '';
 
-            "<Tab>" = ''
-              cmp.mapping(
-                function(fallback)
-                    if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif require('luasnip').expand_or_jumpable() then
-                            require('luasnip').expand_or_jump()
+              "<Tab>" = ''
+                cmp.mapping(
+                  function(fallback)
+                      if cmp.visible() then
+                              cmp.select_next_item()
+                          elseif require('luasnip').expand_or_jumpable() then
+                              require('luasnip').expand_or_jump()
+                          else
+                              fallback()
+                          end
+                      end, { "i", "s" })
+              '';
+
+              "<S-Tab>" = ''
+                cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif require('luasnip').jumpable(-1) then
+                            require('luasnip').jump(-1)
                         else
                             fallback()
                         end
                     end, { "i", "s" })
-            '';
-
-            "<S-Tab>" = ''
-              cmp.mapping(function(fallback)
-                      if cmp.visible() then
-                          cmp.select_prev_item()
-                      elseif require('luasnip').jumpable(-1) then
-                          require('luasnip').jump(-1)
-                      else
-                          fallback()
-                      end
-                  end, { "i", "s" })
-            '';
+              '';
+            };
           };
         };
       };

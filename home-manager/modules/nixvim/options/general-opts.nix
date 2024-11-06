@@ -1,4 +1,9 @@
-_: {
+{lib, config,...}: {
+options = {
+general-opts.enable = lib.mkEnableOption "general-opts";
+};
+
+config = lib.mkIf config.general-opts.enable {
   programs.nixvim = {
     enable = true;
     viAlias = true;
@@ -88,4 +93,5 @@ _: {
       }
     ];
   };
+};
 }
