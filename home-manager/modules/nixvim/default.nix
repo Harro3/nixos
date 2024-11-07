@@ -56,6 +56,7 @@
     nixLang.enable = true;
     obsidian.enable = true;
     python.enable = true;
+    tex.enable = true;
     ts.enable = true;
     xml.enable = true;
     yaml.enable = true;

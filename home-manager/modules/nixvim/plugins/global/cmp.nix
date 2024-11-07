@@ -32,7 +32,10 @@ in
               {name = "buffer";}
               {name = "luasnip";}
               {name = "emoji";}
-              {name = "latex_symbols";}
+              {
+                name = "latex_symbols";
+                option.strategy = 2;
+              }
               {name = "treesitter";}
             ];
             formatting = {
