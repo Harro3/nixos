@@ -13,6 +13,7 @@
   kitty.enable = true;
   wofi.enable = true;
   waybar.enable = true;
+  hyprpanel.enable = false;
   zsh.enable = true;
   sesh.enable = false;
   tmux.enable = true;
