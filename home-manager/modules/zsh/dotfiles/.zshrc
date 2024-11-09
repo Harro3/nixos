@@ -115,3 +115,7 @@ pkill ()
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/harro/.opam/opam-init/init.zsh' ]] || source '/home/harro/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+# SQL Workshop
+export PGDATA="$HOME/postgres_data"
+export PGHOST="/tmp"
