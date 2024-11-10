@@ -19,6 +19,8 @@
   tmux.enable = true;
   nixvim.enable = true;
 
+  kicad.enable = true;
+
   # Misc config
   home.username = "harro";
   home.homeDirectory = "/home/harro";
