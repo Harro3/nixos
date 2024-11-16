@@ -54,6 +54,12 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
             installation_mode = "force_installed";
           };
+
+          # Pegasus infinity
+          "{9a066f3e-5093-471f-9495-fd8618959c81}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/infinity-pegasus/latest.xpi";
+            installation_mode = "force_installed";
+          };
         };
       };
     };

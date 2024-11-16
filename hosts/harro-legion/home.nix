@@ -32,10 +32,12 @@
   # Deps
   home.packages = with pkgs; [
     # Desktop
+    vlc
     libreoffice
     slack
     discord
     spotify
+    wdisplays
 
     # Utils
     unzip
