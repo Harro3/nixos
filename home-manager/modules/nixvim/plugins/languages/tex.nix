@@ -10,6 +10,7 @@
   config = lib.mkIf config.markdown.enable {
     home.packages = with pkgs; [
       zathura
+      texlive.combined.scheme-full
     ];
     programs.nixvim = {
       plugins.vimtex = {
@@ -17,7 +18,9 @@
         settings = {
           view_method = "zathura_simple";
         };
+        texlivePackage = pkgs.texlive.combined.scheme-full;
       };
+
       plugins.lsp.servers.texlab.enable = true;
     };
   };
