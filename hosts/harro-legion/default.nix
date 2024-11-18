@@ -22,6 +22,7 @@
   caps2esc.enable = true;
   greetd.enable = true;
   locales.enable = true;
+  nvidia.enable = true;
 
   # Programs
   programs.hyprlock.enable = true;
@@ -46,7 +47,7 @@
   users.users.harro = {
     isNormalUser = true;
     description = "Harro";
-    extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker"];
+    extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker" "dialout" "uucp"];
     packages = [];
     shell = pkgs.zsh;
   };

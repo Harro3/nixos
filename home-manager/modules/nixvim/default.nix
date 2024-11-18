@@ -47,7 +47,7 @@
     c.enable = true;
     coq.enable = true;
     css.enable = true;
-    cuda.enable = false;
+    cuda.enable = true;
     docker.enable = true;
     html.enable = true;
     java.enable = true;

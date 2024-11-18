@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.c.enable {
     home.packages = with pkgs; [
-      clang-tools
+      # clangd
     ];
 
     programs.nixvim.plugins.lsp.servers.clangd = {
