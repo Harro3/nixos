@@ -22,7 +22,7 @@
   caps2esc.enable = true;
   greetd.enable = true;
   locales.enable = true;
-  nvidia.enable = true;
+  nvidia.enable = false;
 
   # Programs
   programs.hyprlock.enable = true;
