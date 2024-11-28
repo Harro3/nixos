@@ -38,6 +38,7 @@
     discord
     spotify
     wdisplays
+    qemu_full
 
     # Utils
     unzip

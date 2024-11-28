@@ -59,6 +59,7 @@
     sql.enable = true;
     tex.enable = true;
     ts.enable = true;
+    vhdl.enable = true;
     xml.enable = true;
     yaml.enable = true;
     bash.enable = true;
