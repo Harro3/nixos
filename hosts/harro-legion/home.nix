@@ -16,6 +16,7 @@
   hyprpanel.enable = false;
   zsh.enable = true;
   sesh.enable = false;
+  starship.enable = true;
   tmux.enable = true;
   nixvim.enable = true;
 
