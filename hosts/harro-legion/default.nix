@@ -16,6 +16,13 @@
     HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
   };
 
+  # Man pages
+  documentation = {
+    enable = true;
+    man.enable = true;
+    dev.enable = true;
+  };
+
   # Modules
   catppuccin.enable = true;
   bootloader.enable = true;
