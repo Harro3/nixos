@@ -87,6 +87,9 @@
     kitty
     pulseaudio
     pavucontrol
+
+    man-pages
+    man-pages-posix
   ];
 
   system.stateVersion = "24.05";
