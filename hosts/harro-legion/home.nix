@@ -40,7 +40,7 @@
     spotify
     wdisplays
     qemu_full
-    # blender-hip
+    blender
 
     # Utils
     unzip
