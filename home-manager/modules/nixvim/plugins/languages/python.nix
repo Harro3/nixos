@@ -9,7 +9,7 @@
   };
   config = lib.mkIf config.python.enable {
     home.packages = with pkgs; [black];
-    programs.nixvim.plugins.lsp.servers.pylsp = {
+    programs.nixvim.plugins.lsp.servers.pyright = {
       enable = true;
     };
   };

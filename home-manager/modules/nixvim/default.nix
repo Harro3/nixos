@@ -17,6 +17,8 @@
   config = lib.mkIf config.nixvim.enable {
     programs.nixvim.enable = true;
 
+    programs.nixvim.plugins.lsp.servers.ts_query_ls.package = null;
+
     general-opts.enable = true;
     clipboard.enable = true;
 
@@ -60,6 +62,7 @@
     tex.enable = true;
     ts.enable = true;
     vhdl.enable = true;
+    why.enable = true;
     xml.enable = true;
     yaml.enable = true;
     bash.enable = true;

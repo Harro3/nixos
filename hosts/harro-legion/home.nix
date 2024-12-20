@@ -41,6 +41,7 @@
     wdisplays
     qemu_full
     blender
+    quartus-prime-lite
 
     # Utils
     unzip

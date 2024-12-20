@@ -12,8 +12,10 @@
       plugins.floaterm = {
         enable = true;
 
-        keymaps.toggle = "<leader>flt";
-        keymaps.new = "<leader>ft";
+        settings = {
+          keymaps_toggle = "<leader>flt";
+          keymaps_new = "<leader>ft";
+        };
       };
     };
   };
