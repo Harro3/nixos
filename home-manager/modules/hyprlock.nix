@@ -8,9 +8,10 @@
   };
 
   config = lib.mkIf config.hyprlock.enable {
+    catppuccin.hyprlock.enable = true;
+
     programs.hyprlock = {
       enable = true;
-      catppuccin.enable = true;
       settings = {
         general = {
           hide_cursor = true;

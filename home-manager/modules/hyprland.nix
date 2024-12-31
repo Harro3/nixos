@@ -135,7 +135,8 @@ in {
     ];
 
     wayland.windowManager.hyprland.xwayland.enable = true;
-    wayland.windowManager.hyprland.catppuccin.enable = true;
+
+    catppuccin.hyprland.enable = true;
 
     home.file.".config/hypr/hyprland.conf".text = ''
       ################

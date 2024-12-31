@@ -40,6 +40,7 @@
   # Services
   virtualisation.docker.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   services.openssh.enable = true;
 
   # Misc config
@@ -77,6 +78,7 @@
   # System wide packages
   environment.systemPackages = with pkgs; [
     bluez
+    blueman
     playerctl
     brightnessctl
     wget

@@ -14,7 +14,8 @@
     ];
 
     services.mako.enable = true;
-    services.mako.catppuccin.enable = true;
+
+    catppuccin.mako.enable = true;
 
     services.mako.extraConfig = ''
       [mode=default]
