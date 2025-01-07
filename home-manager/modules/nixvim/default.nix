@@ -47,7 +47,7 @@
     which-key.enable = true;
 
     c.enable = true;
-    coq.enable = true;
+    coq.enable = false;
     css.enable = true;
     cuda.enable = true;
     docker.enable = true;
@@ -58,11 +58,11 @@
     nixLang.enable = true;
     obsidian.enable = true;
     python.enable = true;
-    sql.enable = true;
+    sql.enable = false;
     tex.enable = true;
     ts.enable = true;
-    vhdl.enable = true;
-    why.enable = true;
+    vhdl.enable = false;
+    why.enable = false;
     xml.enable = true;
     yaml.enable = true;
     bash.enable = true;

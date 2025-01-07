@@ -40,8 +40,8 @@
     spotify
     wdisplays
     qemu_full
-    blender
-    quartus-prime-lite
+    # blender
+    # quartus-prime-lite
 
     # Utils
     unzip
