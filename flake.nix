@@ -35,5 +35,15 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+
+    nixosConfigurations.q-batt-reload = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArg = {inherit inputs;};
+      modules = [
+        ./hosts/q-batt-reload
+        inputs.catppuccin.nixosModules.cat
+        inputs.home-manager.nixosModules.default
+      ];
+    };
   };
 }
