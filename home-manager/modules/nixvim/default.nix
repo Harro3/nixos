@@ -48,11 +48,11 @@
 
     c.enable = true;
     coq.enable = false;
-    css.enable = true;
-    cuda.enable = true;
+    css.enable = false;
+    cuda.enable = false;
     docker.enable = true;
-    html.enable = true;
-    java.enable = true;
+    html.enable = false;
+    java.enable = false;
     json.enable = true;
     markdown.enable = true;
     nixLang.enable = true;
@@ -60,10 +60,10 @@
     python.enable = true;
     sql.enable = false;
     tex.enable = true;
-    ts.enable = true;
+    ts.enable = false;
     vhdl.enable = false;
     why.enable = false;
-    xml.enable = true;
+    xml.enable = false;
     yaml.enable = true;
     bash.enable = true;
   };

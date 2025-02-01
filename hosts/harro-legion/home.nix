@@ -13,14 +13,13 @@
   kitty.enable = true;
   wofi.enable = true;
   waybar.enable = true;
-  hyprpanel.enable = false;
   zsh.enable = true;
   sesh.enable = false;
   starship.enable = true;
   tmux.enable = true;
   nixvim.enable = true;
 
-  kicad.enable = true;
+  kicad.enable = false;
 
   # Misc config
   home.username = "harro";
@@ -48,6 +47,8 @@
     zathura
     wl-clipboard
     nerdfonts
+    fira-code-nerdfont
+    fira-code-symbols
     jq
 
     # Workflow
@@ -55,17 +56,17 @@
     nh
 
     # Dev
-    prettierd
+    # prettierd
     cmake
     gnumake
     gcc
-    nodejs
+    # nodejs
     cargo
     rustc
     python311
     docker
     docker-compose
-    jdk17
+    # jdk17
     clang-tools
   ];
 

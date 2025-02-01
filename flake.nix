@@ -3,20 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    catppuccin.url = "github:catppuccin/nix";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    catppuccin = {
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -41,7 +39,7 @@
       specialArg = {inherit inputs;};
       modules = [
         ./hosts/q-batt-reload
-        inputs.catppuccin.nixosModules.cat
+        inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.default
       ];
     };

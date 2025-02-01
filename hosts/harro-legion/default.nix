@@ -67,7 +67,6 @@
     users = {
       "harro".imports = [
         ./home.nix
-        {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
         inputs.catppuccin.homeManagerModules.catppuccin
         inputs.nixvim.homeManagerModules.nixvim
       ];
@@ -88,6 +87,7 @@
     kitty
     pulseaudio
     pavucontrol
+    gparted
 
     man-pages
     man-pages-posix
