@@ -17,6 +17,11 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -31,6 +36,7 @@
         ./hosts/harro-legion
         inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.default
+        inputs.sops-nix.nixosModules.sops
       ];
     };
 
@@ -41,6 +47,7 @@
         ./hosts/q-batt-reload
         inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.default
+        inputs.sops-nix.nixosModules.sops
       ];
     };
   };

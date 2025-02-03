@@ -1,0 +1,11 @@
+keys:
+  - users:
+      - &harro age1gpun3duej3mcyq9fnkrf9se6um4v2ysgvp6sl4fffm9xztm6d3wqj77nxn
+  - hosts:
+      - &legion age1w2fz0glgqqavtll34hxpnl6lv6snh5x05wm24jzr274pns65wscqvwm6t9
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+          - *harro
+          - *legion

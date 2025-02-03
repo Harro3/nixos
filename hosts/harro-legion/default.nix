@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [
@@ -31,6 +32,7 @@
   locales.enable = true;
   nvidia.enable = false;
   bluetooth.enable = true;
+  sops-hosts.enable = true;
 
   # Programs
   programs.hyprlock.enable = true;
@@ -51,9 +53,13 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  sops.secrets.harro-password.neededForUsers = true;
+  users.mutableUsers = false;
+
   users.users.harro = {
     isNormalUser = true;
     description = "Harro";
+    hashedPasswordFile = config.sops.secrets.harro-password.path;
     extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker" "dialout" "uucp"];
     packages = [];
     shell = pkgs.zsh;
