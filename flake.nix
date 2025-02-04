@@ -22,6 +22,11 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    secrets = {
+      url = "git+ssh://git@github.com/Harro3/nix-secrets.git?ref=main&shallow=1";
+      flake = false;
+    };
   };
 
   outputs = {

@@ -306,7 +306,25 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "secrets": "secrets",
         "sops-nix": "sops-nix"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738670706,
+        "narHash": "sha256-IUt598YaN6vUGk2H3lF/gBWztj6h9XFiiUvu2FwTzsk=",
+        "ref": "main",
+        "rev": "b3b23b4bcc8a821d7e09799b8477f0a9e5f2b664",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/Harro3/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/Harro3/nix-secrets.git"
       }
     },
     "sops-nix": {
