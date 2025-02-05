@@ -1,0 +1,65 @@
+{
+  lib,
+  config,
+  ...
+}: {
+  imports = [
+    ./options
+
+    ./plugins/global
+
+    ./plugins/languages
+  ];
+
+  programs.nixvim.enable = true;
+
+  programs.nixvim.plugins.lsp.servers.ts_query_ls.package = null;
+
+  general-opts.enable = true;
+  clipboard.enable = true;
+
+  alpha.enable = true;
+  autopairs.enable = true;
+  clipboard-image.enable = true;
+  cmp.enable = true;
+  flash.enable = true;
+  floaterm.enable = true;
+  git.enable = true;
+  image.enable = true;
+  lsp.enable = true;
+  lualine.enable = true;
+  luasnip.enable = true;
+  neo-tree.enable = true;
+  neogen.enable = true;
+  noice.enable = true;
+  none-ls.enable = true;
+  oil.enable = true;
+  otter.enable = true;
+  plenary.enable = true;
+  surround.enable = true;
+  telescope.enable = true;
+  tmux-navigator.enable = true;
+  treesitter.enable = true;
+  which-key.enable = true;
+
+  c.enable = true;
+  coq.enable = false;
+  css.enable = false;
+  cuda.enable = false;
+  docker.enable = true;
+  html.enable = false;
+  java.enable = false;
+  json.enable = true;
+  markdown.enable = true;
+  nixLang.enable = true;
+  obsidian.enable = true;
+  python.enable = true;
+  sql.enable = false;
+  tex.enable = true;
+  ts.enable = false;
+  vhdl.enable = false;
+  why.enable = false;
+  xml.enable = false;
+  yaml.enable = true;
+  bash.enable = true;
+}
