@@ -13,6 +13,7 @@
   };
 
   config = lib.mkIf config.hostmodules.catppuccin.enable {
+    catppuccin.enable = true;
     catppuccin.flavor = "mocha";
   };
 }

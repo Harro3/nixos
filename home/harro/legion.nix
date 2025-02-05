@@ -12,6 +12,8 @@
   # nixpkgs.config.allowBroken = true;
 
   # Modules
+  homemodules.waybar.enable = true;
+  homemodules.wofi.enable = true;
   homemodules.firefox.enable = true;
   homemodules.hypridle.enable = true;
   homemodules.hyprland.enable = true;
