@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    markdown.enable = lib.mkEnableOption "markdown language";
+    nvim.lang.markdown.enable = lib.mkEnableOption "markdown language";
   };
-  config = lib.mkIf config.markdown.enable {
+  config = lib.mkIf config.nvim.lang.markdown.enable {
     programs.nixvim = {
       plugins.render-markdown.enable = true;
 

@@ -5,9 +5,9 @@
   ...
 }: {
   options = {
-    java.enable = lib.mkEnableOption "java language";
+    nvim.lang.java.enable = lib.mkEnableOption "java language";
   };
-  config = lib.mkIf config.java.enable {
+  config = lib.mkIf config.nvim.lang.java.enable {
     home.packages = with pkgs; [jdk17 jdt-language-server];
 
     programs.nixvim.plugins.lsp.servers.jdtls = {

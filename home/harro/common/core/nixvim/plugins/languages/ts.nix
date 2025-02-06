@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    ts.enable = lib.mkEnableOption "typescript language";
+    nvim.lang.ts.enable = lib.mkEnableOption "typescript language";
   };
-  config = lib.mkIf config.ts.enable {
+  config = lib.mkIf config.nvim.lang.ts.enable {
     programs.nixvim.plugins.none-ls.sources.formatting.prettier.disableTsServerFormatter = true;
     programs.nixvim.plugins.lsp.servers.ts_ls = {
       enable = true;

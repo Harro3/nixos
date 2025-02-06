@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    css.enable = lib.mkEnableOption "css language";
+    nvim.lang.css.enable = lib.mkEnableOption "css language";
   };
-  config = lib.mkIf config.css.enable {
+  config = lib.mkIf config.nvim.lang.css.enable {
     programs.nixvim.plugins.lsp.servers.cssls = {
       enable = true;
     };

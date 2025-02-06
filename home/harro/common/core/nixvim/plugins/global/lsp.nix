@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    lsp.enable = lib.mkEnableOption "lsp";
+    nvim.plugins.lsp.enable = lib.mkEnableOption "lsp";
   };
 
-  config = lib.mkIf config.lsp.enable {
+  config = lib.mkIf config.nvim.plugins.lsp.enable {
     programs.nixvim = {
       plugins.lsp = {
         enable = true;

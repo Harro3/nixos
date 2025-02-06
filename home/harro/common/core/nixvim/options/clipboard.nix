@@ -1,9 +1,8 @@
-{lib, config,...}: {
-  options = {
-  clipboard.enable = lib.mkEnableOption "clipboard";
-  };
-
-  config = lib.mkIf config.clipboard.enable {
+{
+  lib,
+  config,
+  ...
+}: {
   programs.nixvim = {
     keymaps = [
       {
@@ -80,5 +79,4 @@
       }
     ];
   };
-};
 }

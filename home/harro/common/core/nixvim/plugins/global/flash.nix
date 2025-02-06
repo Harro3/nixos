@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    flash.enable = lib.mkEnableOption "flash";
+    nvim.plugins.flash.enable = lib.mkEnableOption "flash";
   };
 
-  config = lib.mkIf config.flash.enable {
+  config = lib.mkIf config.nvim.plugins.flash.enable {
     programs.nixvim = {
       keymaps = [
         {

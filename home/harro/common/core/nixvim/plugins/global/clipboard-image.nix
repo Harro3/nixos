@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    clipboard-image.enable = lib.mkEnableOption "clipboard-image";
+    nvim.plugins.clipboard-image.enable = lib.mkEnableOption "clipboard-image";
   };
 
-  config = lib.mkIf config.clipboard-image.enable {
+  config = lib.mkIf config.nvim.plugins.clipboard-image.enable {
     programs.nixvim = {
       plugins.clipboard-image = {
         enable = true;

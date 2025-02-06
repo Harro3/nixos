@@ -5,9 +5,9 @@
   ...
 }: {
   options = {
-    tex.enable = lib.mkEnableOption "tex language";
+    nvim.lang.tex.enable = lib.mkEnableOption "tex language";
   };
-  config = lib.mkIf config.markdown.enable {
+  config = lib.mkIf config.nvim.lang.tex.enable {
     home.packages = with pkgs; [
       zathura
       texlive.combined.scheme-full

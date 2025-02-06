@@ -7,10 +7,10 @@ in
     ...
   }: {
     options = {
-      cmp.enable = lib.mkEnableOption "cmp";
+      nvim.plugins.cmp.enable = lib.mkEnableOption "cmp";
     };
 
-    config = lib.mkIf config.cmp.enable {
+    config = lib.mkIf config.nvim.plugins.cmp.enable {
       programs.nixvim = {
         plugins.cmp-buffer.enable = true;
         plugins.cmp-path.enable = true;

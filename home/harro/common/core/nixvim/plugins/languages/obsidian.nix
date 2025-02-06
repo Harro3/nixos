@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    obsidian.enable = lib.mkEnableOption "Obsidian language";
+    nvim.lang.obsidian.enable = lib.mkEnableOption "Obsidian language";
   };
-  config = lib.mkIf config.obsidian.enable {
+  config = lib.mkIf config.nvim.lang.obsidian.enable {
     programs.nixvim.plugins.obsidian = {
       enable = true;
 

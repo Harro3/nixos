@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    treesitter.enable = lib.mkEnableOption "treesitter";
+    nvim.plugins.treesitter.enable = lib.mkEnableOption "treesitter";
   };
 
-  config = lib.mkIf config.treesitter.enable {
+  config = lib.mkIf config.nvim.plugins.treesitter.enable {
     programs.nixvim = {
       plugins.treesitter = {
         enable = true;

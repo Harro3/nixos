@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    xml.enable = lib.mkEnableOption "xml language";
+    nvim.lang.xml.enable = lib.mkEnableOption "xml language";
   };
 
-  config = lib.mkIf config.xml.enable {
+  config = lib.mkIf config.nvim.lang.xml.enable {
     programs.nixvim.plugins.lsp.servers.lemminx = {
       enable = true;
     };

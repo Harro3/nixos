@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    cuda.enable = lib.mkEnableOption "cuda language";
+    nvim.lang.cuda.enable = lib.mkEnableOption "cuda language";
   };
 
-  config = lib.mkIf config.cuda.enable {
+  config = lib.mkIf config.nvim.lang.cuda.enable {
     home.packages = with pkgs; [
       # cudatoolkit
       cudaPackages.cudatoolkit

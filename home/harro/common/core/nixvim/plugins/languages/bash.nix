@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    bash.enable = lib.mkEnableOption "bash language";
+    nvim.lang.bash.enable = lib.mkEnableOption "bash language";
   };
 
-  config = lib.mkIf config.bash.enable {
+  config = lib.mkIf config.nvim.lang.bash.enable {
     home.packages = with pkgs; [
       bash-language-server
       shellcheck

@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    alpha.enable = lib.mkEnableOption "alpha";
+    nvim.plugins.alpha.enable = lib.mkEnableOption "alpha";
   };
 
-  config = lib.mkIf config.alpha.enable {
+  config = lib.mkIf config.nvim.plugins.alpha.enable {
     programs.nixvim = {
       plugins.alpha = {
         enable = true;

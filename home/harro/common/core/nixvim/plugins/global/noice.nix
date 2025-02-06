@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    noice.enable = lib.mkEnableOption "noice";
+    nvim.plugins.noice.enable = lib.mkEnableOption "noice";
   };
 
-  config = lib.mkIf config.noice.enable {
+  config = lib.mkIf config.nvim.plugins.noice.enable {
     programs.nixvim = {
       plugins.noice = {
         enable = true;

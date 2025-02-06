@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    lualine.enable = lib.mkEnableOption "lualine";
+    nvim.plugins.lualine.enable = lib.mkEnableOption "lualine";
   };
 
-  config = lib.mkIf config.lualine.enable {
+  config = lib.mkIf config.nvim.plugins.lualine.enable {
     programs.nixvim = {
       plugins.lualine.enable = true;
     };

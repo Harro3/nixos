@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    image.enable = lib.mkEnableOption "image";
+    nvim.plugins.image.enable = lib.mkEnableOption "image";
   };
 
-  config = lib.mkIf config.image.enable {
+  config = lib.mkIf config.nvim.plugins.image.enable {
     programs.nixvim = {
       plugins.image.enable = true;
       plugins.image.integrations.markdown.enabled = true;

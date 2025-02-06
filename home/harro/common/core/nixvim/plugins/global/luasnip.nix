@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    luasnip.enable = lib.mkEnableOption "luasnip";
+    nvim.plugins.luasnip.enable = lib.mkEnableOption "luasnip";
   };
 
-  config = lib.mkIf config.luasnip.enable {
+  config = lib.mkIf config.nvim.plugins.luasnip.enable {
     programs.nixvim = {
       plugins.friendly-snippets.enable = true;
       plugins.luasnip.enable = true;

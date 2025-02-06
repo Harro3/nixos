@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    autopairs.enable = lib.mkEnableOption "autopairs";
+    nvim.plugins.autopairs.enable = lib.mkEnableOption "autopairs";
   };
-  config = lib.mkIf config.autopairs.enable {
+  config = lib.mkIf config.nvim.plugins.autopairs.enable {
     programs.nixvim.plugins.nvim-autopairs = {
       enable = true;
     };

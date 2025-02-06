@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    floaterm.enable = lib.mkEnableOption "floaterm";
+    nvim.plugins.floaterm.enable = lib.mkEnableOption "floaterm";
   };
 
-  config = lib.mkIf config.floaterm.enable {
+  config = lib.mkIf config.nvim.plugins.floaterm.enable {
     programs.nixvim = {
       plugins.floaterm = {
         enable = true;

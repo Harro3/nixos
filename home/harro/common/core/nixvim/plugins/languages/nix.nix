@@ -5,9 +5,9 @@
   ...
 }: {
   options = {
-    nixLang.enable = lib.mkEnableOption "nix language";
+    nvim.lang.nix.enable = lib.mkEnableOption "nix language";
   };
-  config = lib.mkIf config.nixLang.enable {
+  config = lib.mkIf config.nvim.lang.nix.enable {
     home.packages = with pkgs; [
       alejandra
     ];

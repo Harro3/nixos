@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    why.enable = lib.mkEnableOption "why language";
+    nvim.lang.why.enable = lib.mkEnableOption "why language";
   };
 
-  config = lib.mkIf config.why.enable {
+  config = lib.mkIf config.nvim.lang.why.enable {
     home.packages = with pkgs; [
       why3
       alt-ergo

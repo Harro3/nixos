@@ -6,10 +6,10 @@
   languages = ["c" "bash" "sh"];
 in {
   options = {
-    otter.enable = lib.mkEnableOption "otter";
+    nvim.plugins.otter.enable = lib.mkEnableOption "otter";
   };
 
-  config = lib.mkIf config.otter.enable {
+  config = lib.mkIf config.nvim.plugins.otter.enable {
     programs.nixvim = {
       plugins.otter = {
         enable = true;

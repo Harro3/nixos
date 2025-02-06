@@ -5,9 +5,9 @@
   ...
 }: {
   options = {
-    sql.enable = lib.mkEnableOption "sql language";
+    nvim.lang.sql.enable = lib.mkEnableOption "sql language";
   };
-  config = lib.mkIf config.sql.enable {
+  config = lib.mkIf config.nvim.lang.sql.enable {
     home.packages = with pkgs; [
       postgresql_14
       dbeaver-bin

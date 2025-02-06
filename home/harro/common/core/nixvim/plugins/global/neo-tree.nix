@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    neo-tree.enable = lib.mkEnableOption "neo-tree";
+    nvim.plugins.neo-tree.enable = lib.mkEnableOption "neo-tree";
   };
 
-  config = lib.mkIf config.neo-tree.enable {
+  config = lib.mkIf config.nvim.plugins.neo-tree.enable {
     programs.nixvim = {
       keymaps = [
         {

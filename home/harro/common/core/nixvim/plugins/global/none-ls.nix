@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    none-ls.enable = lib.mkEnableOption "none-ls";
+    nvim.plugins.none-ls.enable = lib.mkEnableOption "none-ls";
   };
 
-  config = lib.mkIf config.none-ls.enable {
+  config = lib.mkIf config.nvim.plugins.none-ls.enable {
     programs.nixvim = {
       keymaps = [
         {

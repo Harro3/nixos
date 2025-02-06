@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    neogen.enable = lib.mkEnableOption "neogen";
+    nvim.plugins.neogen.enable = lib.mkEnableOption "neogen";
   };
 
-  config = lib.mkIf config.neogen.enable {
+  config = lib.mkIf config.nvim.plugins.neogen.enable {
     programs.nixvim = {
       keymaps = [
         {

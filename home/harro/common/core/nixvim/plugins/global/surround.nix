@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    surround.enable = lib.mkEnableOption "surround";
+    nvim.plugins.surround.enable = lib.mkEnableOption "surround";
   };
 
-  config = lib.mkIf config.surround.enable {
+  config = lib.mkIf config.nvim.plugins.surround.enable {
     programs.nixvim = {
       plugins.vim-surround.enable = true;
     };

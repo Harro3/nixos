@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    coq.enable = lib.mkEnableOption "coq language";
+    nvim.lang.coq.enable = lib.mkEnableOption "coq language";
   };
 
-  config = lib.mkIf config.coq.enable {
+  config = lib.mkIf config.nvim.lang.coq.enable {
     home.packages = with pkgs; [
       coq
       coqPackages.coq-lsp

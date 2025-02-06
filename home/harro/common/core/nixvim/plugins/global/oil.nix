@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    oil.enable = lib.mkEnableOption "oil";
+    nvim.plugins.oil.enable = lib.mkEnableOption "oil";
   };
 
-  config = lib.mkIf config.oil.enable {
+  config = lib.mkIf config.nvim.plugins.oil.enable {
     programs.nixvim = {
       keymaps = [
         {

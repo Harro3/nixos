@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    telescope.enable = lib.mkEnableOption "telescope";
+    nvim.plugins.telescope.enable = lib.mkEnableOption "telescope";
   };
 
-  config = lib.mkIf config.telescope.enable {
+  config = lib.mkIf config.nvim.plugins.telescope.enable {
     home.packages = with pkgs; [
       ripgrep
     ];

@@ -25,18 +25,22 @@
   homemodules.kicad.enable = false;
   homemodules.sesh.enable = false;
 
-  # Nixvim options
-  # TODO
+  # Nixvim langs
+  nvim.lang = {
+    bash.enable = true;
+    c.enable = true;
+    docker.enable = true;
+    html.enable = true;
+    json.enable = true;
+    markdown.enable = true;
+    nix.enable = true;
+    obsidian.enable = true;
+    python.enable = true;
+    tex.enable = true;
+    yaml.enable = true;
+  };
 
   # Packages
-  # TODO:
-  # Put some of these in modules in subdirs
-  # And dev related things to some core dev
-  # module with options (used by both the module
-  # itself and nixvim)
-
-  # The indended workflow is:
-  # dev.lang.c.enable = true; -> tools and lsp setup
   home.packages = with pkgs; [
     # Desktop
     vlc
@@ -50,31 +54,15 @@
     # quartus-prime-lite
 
     # Utils
+    zip
     unzip
     zathura
     wl-clipboard
-    nerdfonts
-    fira-code-nerdfont
-    fira-code-symbols
     jq
 
     # Workflow
     lazygit
     nh
-
-    # Dev
-    # prettierd
-    cmake
-    gnumake
-    gcc
-    # nodejs
-    cargo
-    rustc
-    python311
-    docker
-    docker-compose
-    # jdk17
-    clang-tools
   ];
 
   home.stateVersion = "24.05";

@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    git.enable = lib.mkEnableOption "git";
+    nvim.plugins.git.enable = lib.mkEnableOption "git";
   };
 
-  config = lib.mkIf config.git.enable {
+  config = lib.mkIf config.nvim.plugins.git.enable {
     home.packages = with pkgs; [
       lazygit
     ];

@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    json.enable = lib.mkEnableOption "json language";
+    nvim.lang.json.enable = lib.mkEnableOption "json language";
   };
-  config = lib.mkIf config.json.enable {
+  config = lib.mkIf config.nvim.lang.json.enable {
     programs.nixvim.plugins.lsp.servers.jsonls = {
       enable = true;
     };

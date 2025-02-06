@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    plenary.enable = lib.mkEnableOption "plenary";
+    nvim.plugins.plenary.enable = lib.mkEnableOption "plenary";
   };
 
-  config = lib.mkIf config.plenary.enable {
+  config = lib.mkIf config.nvim.plugins.plenary.enable {
     programs.nixvim = {
       extraPlugins = with pkgs.vimPlugins; [
         plenary-nvim
