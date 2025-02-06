@@ -15,9 +15,6 @@
 
   programs.nixvim.plugins.lsp.servers.ts_query_ls.package = null;
 
-  general-opts.enable = true;
-  clipboard.enable = true;
-
   nvim.plugins = {
     alpha.enable = lib.mkDefault true;
     autopairs.enable = lib.mkDefault true;
