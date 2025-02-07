@@ -34,8 +34,9 @@
     nix.enable = true;
     obsidian.enable = true;
     python.enable = true;
-    tex.enable = true;
     yaml.enable = true;
+
+    tex.enable = false;
   };
 
   # Packages
