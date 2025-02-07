@@ -6,7 +6,7 @@
   ];
 
   # General config
-  networking.hostName = "legion";
+  networking.hostName = "alae";
   networking.networkmanager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
@@ -23,8 +23,6 @@
   hostmodules.kitty.enable = true;
   hostmodules.zsh.enable = true;
   hostmodules.wayland.enable = true;
-
-  hostmodules.nvidia.enable = false;
 
   # Users
   hostmodules.users.harro.enable = true;
