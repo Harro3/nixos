@@ -13,6 +13,10 @@
       hyprland
     ];
 
-    programs.hyprland.enable = true;
+    hardware.graphics.enable = true;
+
+    programs.hyprland = {
+      enable = true;
+    };
   };
 }
