@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  vars,
   ...
 }: {
   options = {
@@ -31,7 +32,7 @@
       extraSpecialArgs = {inherit inputs;};
       users = {
         harro.imports = [
-          ../../../../home/harro/legion.nix
+          ../../../../home/harro/${vars.hostname}.nix
         ];
       };
     };

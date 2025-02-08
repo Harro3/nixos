@@ -46,6 +46,10 @@
           inherit inputs outputs;
 
           lib = nixpkgs.lib.extend (self: super: {custom = import ./lib {inherit (nixpkgs) lib;};});
+
+          vars = {
+            hostname = host;
+          };
         };
 
         modules = [./hosts/nixos/${host}];

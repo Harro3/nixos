@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  vars,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -6,7 +10,7 @@
   ];
 
   # General config
-  networking.hostName = "alae";
+  networking.hostName = vars.hostname;
   networking.networkmanager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
