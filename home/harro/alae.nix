@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs_unstable,
+  ...
+}: {
   imports = [
     ./common
   ];
@@ -40,24 +44,28 @@
   };
 
   # Packages
-  home.packages = with pkgs; [
-    # Desktop
-    libreoffice
-    discord
-    spotify
-    wdisplays
+  home.packages =
+    (with pkgs; [
+      # Desktop
+      libreoffice
+      discord
+      spotify
+      wdisplays
 
-    # Utils
-    zip
-    unzip
-    zathura
-    wl-clipboard
-    jq
+      # Utils
+      zip
+      unzip
+      zathura
+      wl-clipboard
+      jq
 
-    # Workflow
-    lazygit
-    nh
-  ];
+      # Workflow
+      lazygit
+      nh
+    ])
+    ++ (with pkgs_unstable; [
+      onedrive
+    ]);
 
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;

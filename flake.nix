@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -39,11 +40,13 @@
     inherit (nixpkgs) lib;
 
     mkHost = host: {
-      ${host} = lib.nixosSystem {
+      ${host} = lib.nixosSystem rec {
         system = "x86_64-linux";
 
         specialArgs = {
           inherit inputs outputs;
+
+          pkgs_unstable = import inputs.nixpkgs_unstable {inherit system;};
 
           lib = nixpkgs.lib.extend (self: super: {custom = import ./lib {inherit (nixpkgs) lib;};});
 

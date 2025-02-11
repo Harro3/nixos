@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs_unstable,
   config,
   lib,
   inputs,
@@ -29,7 +30,7 @@
     # Home manager user config
     home-manager = {
       backupFileExtension = "bck";
-      extraSpecialArgs = {inherit inputs;};
+      extraSpecialArgs = {inherit inputs pkgs_unstable;};
       users = {
         harro.imports = [
           ../../../../home/harro/${vars.hostname}.nix
