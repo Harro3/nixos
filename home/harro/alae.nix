@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs_unstable,
+  lib,
   ...
 }: {
   imports = [
@@ -43,29 +44,43 @@
     tex.enable = false;
   };
 
+  nixpkgs.overlays = [
+    (self: super: {
+      onedrive = super.onedrive.overrideAttrs (old: rec {
+        version = "2.5.4";
+
+        src = super.fetchFromGitHub {
+          owner = "abraunegg";
+          repo = "onedrive";
+          rev = "1c78078df74cf527e089d75f78544522401cf859";
+          hash = "sha256-KJ+6Yo5tod36yMihBamdzCGzVOTItN9OgUd05pAyTxc=";
+        };
+
+        patches = [];
+      });
+    })
+  ];
+
   # Packages
-  home.packages =
-    (with pkgs; [
-      # Desktop
-      libreoffice
-      discord
-      spotify
-      wdisplays
+  home.packages = with pkgs; [
+    # Desktop
+    libreoffice
+    discord
+    spotify
+    wdisplays
 
-      # Utils
-      zip
-      unzip
-      zathura
-      wl-clipboard
-      jq
+    # Utils
+    zip
+    unzip
+    zathura
+    wl-clipboard
+    jq
 
-      # Workflow
-      lazygit
-      nh
-    ])
-    ++ (with pkgs_unstable; [
-      onedrive
-    ]);
+    # Workflow
+    lazygit
+    nh
+    onedrive
+  ];
 
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
