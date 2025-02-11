@@ -25,6 +25,7 @@
   homemodules.hyprpaper.enable = true;
   homemodules.mako.enable = true;
   homemodules.tmux.enable = true;
+  homemodules.onedrive.enable = true;
 
   homemodules.kicad.enable = false;
   homemodules.sesh.enable = false;
@@ -44,23 +45,6 @@
     tex.enable = false;
   };
 
-  nixpkgs.overlays = [
-    (self: super: {
-      onedrive = super.onedrive.overrideAttrs (old: rec {
-        version = "2.5.4";
-
-        src = super.fetchFromGitHub {
-          owner = "abraunegg";
-          repo = "onedrive";
-          rev = "1c78078df74cf527e089d75f78544522401cf859";
-          hash = "sha256-KJ+6Yo5tod36yMihBamdzCGzVOTItN9OgUd05pAyTxc=";
-        };
-
-        patches = [];
-      });
-    })
-  ];
-
   # Packages
   home.packages = with pkgs; [
     # Desktop
@@ -79,7 +63,6 @@
     # Workflow
     lazygit
     nh
-    onedrive
   ];
 
   home.stateVersion = "24.05";
