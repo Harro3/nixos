@@ -60,6 +60,13 @@
           options.desc = "Debug Step (step into)";
           action = ":lua require('dap').step_into()<CR>";
         }
+
+        {
+          mode = "n";
+          key = "<leader>dpt";
+          options.desc = "Debug Python Test";
+          action = ":lua require('dap-python').test_method()<CR>";
+        }
       ];
     };
   };

@@ -63,6 +63,8 @@
     # Workflow
     lazygit
     nh
+
+    python312
   ];
 
   home.stateVersion = "24.05";
