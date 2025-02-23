@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ./options
 
@@ -20,6 +16,7 @@
     autopairs.enable = lib.mkDefault true;
     clipboard-image.enable = lib.mkDefault true;
     cmp.enable = lib.mkDefault true;
+    dap.enable = lib.mkDefault true;
     flash.enable = lib.mkDefault true;
     floaterm.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
