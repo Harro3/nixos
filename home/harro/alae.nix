@@ -54,6 +54,7 @@
     wdisplays
     chromium
     vlc
+    ffmpeg
 
     # Utils
     zip
