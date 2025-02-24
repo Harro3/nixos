@@ -52,6 +52,8 @@
     discord
     spotify
     wdisplays
+    chromium
+    vlc
 
     # Utils
     zip
