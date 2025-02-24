@@ -46,5 +46,11 @@
     gparted
   ];
 
+  # Firewall rules
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [8765];
+  };
+
   system.stateVersion = "24.05";
 }
