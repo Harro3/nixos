@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Modules
-  hostmodules.audio.enable = true;
+  hostmodules.pipewire.enable = true;
   hostmodules.bluetooth.enable = true;
   hostmodules.caps2esc.enable = true;
   hostmodules.catppuccin.enable = true;
@@ -44,6 +44,7 @@
     firefox
     vim
     gparted
+    spotify
   ];
 
   # Firewall rules

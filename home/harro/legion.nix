@@ -47,7 +47,6 @@
     libreoffice
     slack
     discord
-    spotify
     wdisplays
     qemu_full
     # blender

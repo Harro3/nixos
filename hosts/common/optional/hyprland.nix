@@ -13,6 +13,8 @@
       hyprland
     ];
 
+    environment.sessionVariables.XDG_CURRENT_DESKTOP = "Hyprland";
+
     hardware.graphics.enable = true;
 
     programs.hyprland = {

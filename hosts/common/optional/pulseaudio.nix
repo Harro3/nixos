@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    hostmodules.audio.enable = lib.mkEnableOption "Audio config";
+    hostmodules.pulseaudio.enable = lib.mkEnableOption "Pulseaudio config";
   };
 
-  config = lib.mkIf config.hostmodules.audio.enable {
+  config = lib.mkIf config.hostmodules.pulseaudio.enable {
     environment.systemPackages = with pkgs; [
       playerctl
       pulseaudio
