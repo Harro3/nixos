@@ -18,11 +18,13 @@
     # User creation with sops password
     sops.secrets.harro-password.neededForUsers = true;
 
+    users.groups.bosco = {};
+
     users.users.harro = {
       isNormalUser = true;
       description = "Harro";
       hashedPasswordFile = config.sops.secrets.harro-password.path;
-      extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker" "dialout" "uucp"];
+      extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker" "dialout" "uucp" "bosco"];
       packages = [];
       shell = pkgs.zsh;
     };
