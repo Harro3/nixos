@@ -27,7 +27,7 @@
   hostmodules.kitty.enable = true;
   hostmodules.zsh.enable = true;
   hostmodules.wayland.enable = true;
-  hostmodules.nvidia.enable = true;
+  hostmodules.nvidia.enable = false;
 
   # Users
   hostmodules.users.harro.enable = true;
