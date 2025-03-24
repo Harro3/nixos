@@ -64,6 +64,7 @@
     nh
 
     python312
+    docker-compose
   ];
 
   home.stateVersion = "24.05";
