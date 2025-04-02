@@ -47,9 +47,8 @@
   ];
 
   # Firewall rules
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [8765];
+  networking.hosts = {
+    "127.0.0.1" = ["bosco-mosquitto"];
   };
 
   system.stateVersion = "24.05";
