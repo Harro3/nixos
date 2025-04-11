@@ -10,7 +10,7 @@
   config = lib.mkIf config.nvim.plugins.image.enable {
     programs.nixvim = {
       plugins.image.enable = true;
-      plugins.image.integrations.markdown.enabled = true;
+      plugins.image.settings.integrations.markdown.enabled = true;
     };
   };
 }
