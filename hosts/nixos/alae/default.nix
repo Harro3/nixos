@@ -44,11 +44,14 @@
     vim
     gparted
     spotify
+
+    influxdb2
   ];
 
   networking.hosts = {
     "127.0.0.1" = ["bosco-mosquitto"];
   };
+  networking.firewall.allowedTCPPorts = [8086];
 
   system.stateVersion = "24.05";
 }
