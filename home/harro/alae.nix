@@ -52,6 +52,7 @@
     ffmpeg
 
     # Utils
+    gcc
     zip
     unzip
     zathura
