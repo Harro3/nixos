@@ -11,6 +11,7 @@
     home.packages = with pkgs; [
       zathura
       texlive.combined.scheme-full
+      tree-sitter
     ];
     programs.nixvim = {
       plugins.vimtex = {
