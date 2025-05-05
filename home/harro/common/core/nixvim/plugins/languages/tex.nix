@@ -12,6 +12,7 @@
       zathura
       texlive.combined.scheme-full
       tree-sitter
+      nodejs
     ];
     programs.nixvim = {
       plugins.vimtex = {
