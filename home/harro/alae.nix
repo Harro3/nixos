@@ -1,9 +1,4 @@
-{
-  pkgs,
-  pkgs_unstable,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./common
   ];
