@@ -42,7 +42,7 @@
     python.enable = true;
     yaml.enable = true;
 
-    tex.enable = false;
+    tex.enable = true;
   };
 
   # Packages
