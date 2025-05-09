@@ -68,6 +68,8 @@
     docker-compose
   ];
 
+  networking.firewall.allowedTCPPorts = [1883];
+
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 }
