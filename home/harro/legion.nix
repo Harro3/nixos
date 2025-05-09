@@ -49,6 +49,7 @@
     discord
     wdisplays
     qemu_full
+    appimage-run
     # blender
     # quartus-prime-lite
 
