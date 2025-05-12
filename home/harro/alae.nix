@@ -59,12 +59,14 @@
     zathura
     wl-clipboard
     jq
+    appimage-run
 
     # Workflow
     lazygit
     nh
 
     python312
+    docker-compose
   ];
 
   home.stateVersion = "24.05";

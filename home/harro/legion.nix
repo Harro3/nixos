@@ -49,16 +49,17 @@
     discord
     wdisplays
     qemu_full
-    appimage-run
     # blender
     # quartus-prime-lite
 
     # Utils
+    gcc
     zip
     unzip
     zathura
     wl-clipboard
     jq
+    appimage-run
 
     # Workflow
     lazygit
