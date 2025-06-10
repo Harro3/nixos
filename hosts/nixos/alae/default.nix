@@ -27,6 +27,7 @@
   hostmodules.kitty.enable = true;
   hostmodules.zsh.enable = true;
   hostmodules.wayland.enable = true;
+  hostmodules.virtualisation.enable = true;
 
   # Users
   hostmodules.users.harro.enable = true;
