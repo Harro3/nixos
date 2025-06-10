@@ -20,11 +20,13 @@
 
     users.groups.bosco = {};
 
+    users.groups.libvirtd.members = ["harro"];
+
     users.users.harro = {
       isNormalUser = true;
       description = "Harro";
       hashedPasswordFile = config.sops.secrets.harro-password.path;
-      extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker" "dialout" "uucp" "bosco"];
+      extraGroups = ["networkmanager" "wheel" "audio" "sound" "docker" "dialout" "uucp" "bosco" "libvirtd"];
       packages = [];
       shell = pkgs.zsh;
     };

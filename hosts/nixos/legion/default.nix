@@ -28,6 +28,7 @@
   hostmodules.zsh.enable = true;
   hostmodules.wayland.enable = true;
   hostmodules.nvidia.enable = false;
+  hostmodules.virtualisation.enable = true;
 
   # Users
   hostmodules.users.harro.enable = true;
