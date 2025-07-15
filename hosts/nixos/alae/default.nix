@@ -28,6 +28,7 @@
   hostmodules.zsh.enable = true;
   hostmodules.wayland.enable = true;
   hostmodules.virtualisation.enable = true;
+  hostmodules.appimage.enable = true;
 
   # Users
   hostmodules.users.harro.enable = true;

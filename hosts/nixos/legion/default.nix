@@ -29,6 +29,7 @@
   hostmodules.wayland.enable = true;
   hostmodules.nvidia.enable = false;
   hostmodules.virtualisation.enable = true;
+  hostmodules.appimage.enable = true;
 
   # Users
   hostmodules.users.harro.enable = true;

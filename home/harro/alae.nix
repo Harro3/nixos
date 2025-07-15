@@ -50,7 +50,6 @@
     chromium
     vlc
     ffmpeg
-    appimage-run
 
     # Utils
     gcc
