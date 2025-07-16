@@ -38,6 +38,7 @@
     python.enable = true;
     tex.enable = true;
     yaml.enable = true;
+    rust.enable = true;
   };
 
   # Packages
