@@ -22,7 +22,7 @@
   homemodules.mako.enable = true;
   homemodules.tmux.enable = true;
 
-  homemodules.kicad.enable = false;
+  homemodules.kicad.enable = true;
   homemodules.sesh.enable = false;
 
   # Nixvim langs
