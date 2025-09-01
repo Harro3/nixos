@@ -36,6 +36,7 @@
     obsidian.enable = true;
     python.enable = true;
     yaml.enable = true;
+    rust.enable = true;
 
     tex.enable = true;
   };
