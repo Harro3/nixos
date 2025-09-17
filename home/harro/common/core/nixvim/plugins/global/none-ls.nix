@@ -35,6 +35,7 @@
           nginx_beautifier.enable = true;
           nginx_beautifier.package = null;
           sqlfluff.enable = true;
+          shfmt.enable = true;
         };
 
         settings.on_attach = ''

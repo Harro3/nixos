@@ -13,8 +13,8 @@
         enable = true;
 
         settings = {
-          keymaps_toggle = "<leader>flt";
-          keymaps_new = "<leader>ft";
+          keymaps_toggle = "<leader>tt";
+          keymaps_new = "<leader>tn";
         };
       };
     };
