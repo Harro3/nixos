@@ -15,6 +15,29 @@
       rustfmt
     ];
 
+    programs.nixvim = {
+      keymaps = [
+        {
+          mode = "n";
+          key = "<leader>rr";
+          action = '':RustLsp run<CR>'';
+          options = {
+            desc = "Rust Run";
+            silent = true;
+          };
+        }
+        {
+          mode = "n";
+          key = "<leader>rl";
+          action = '':RustLsp runnables<CR>'';
+          options = {
+            desc = "Rust List runnables";
+            silent = true;
+          };
+        }
+      ];
+    };
+
     programs.nixvim.plugins.rustaceanvim = {
       enable = true;
       settings.server = {
