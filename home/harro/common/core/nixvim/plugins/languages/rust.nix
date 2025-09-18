@@ -10,9 +10,7 @@
 
   config = lib.mkIf config.nvim.lang.rust.enable {
     home.packages = with pkgs; [
-      rustc
-      cargo
-      rustfmt
+      rustup
     ];
 
     programs.nixvim = {
