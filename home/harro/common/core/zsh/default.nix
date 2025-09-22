@@ -21,6 +21,7 @@
   catppuccin.fzf.enable = true;
   catppuccin.yazi.enable = true;
   catppuccin.btop.enable = true;
+  catppuccin.zsh-syntax-highlighting.enable = true;
 
   home.file.".zshrc".source = ./dotfiles/.zshrc;
   home.file.".p10k.zsh".source = ./dotfiles/.p10k.zsh;

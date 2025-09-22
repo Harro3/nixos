@@ -4,7 +4,7 @@
   ...
 }: {
   options = {
-    nvim.lang.docker.enable = lib.mkEnableOption "css language";
+    nvim.lang.docker.enable = lib.mkEnableOption "docker language";
   };
   config = lib.mkIf config.nvim.lang.docker.enable {
     programs.nixvim.plugins.lsp.servers.dockerls.enable = true;
