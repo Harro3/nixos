@@ -39,6 +39,7 @@
     tex.enable = true;
     yaml.enable = true;
     rust.enable = true;
+    arduino.enable = true;
   };
 
   # Packages
