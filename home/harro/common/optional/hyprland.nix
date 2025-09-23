@@ -203,7 +203,7 @@ in {
 
           # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
           col.active_border = $lavender $lavender
-          col.inactive_border = overlay0 overlay0
+          col.inactive_border = $overlay0 $overlay0
 
           # Set to true enable resizing windows by clicking and dragging on borders and gaps
           resize_on_border = false
