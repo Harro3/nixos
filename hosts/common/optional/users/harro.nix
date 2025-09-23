@@ -11,7 +11,7 @@
   };
 
   config = lib.mkIf config.hostmodules.users.harro.enable {
-    environment.sessionVariables.FLAKE = "/home/harro/nixos";
+    environment.sessionVariables.NH_FLAKE = "/home/harro/nixos";
     environment.sessionVariables.HYPRSHOT_DIR = "/home/harro/Pictures/screenshots";
 
     # User creation with sops password

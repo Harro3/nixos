@@ -405,7 +405,7 @@ in {
       bind = $mainMod SHIFT, code:59, movecurrentworkspacetomonitor, l
       bind = $mainMod SHIFT, code:60, movecurrentworkspacetomonitor, r
 
-      windowrule = opacity 0.8 0.7, ^(kitty)$
+      windowrulev2 = opacity 0.8 override 0.7 override, class:^(kitty)$
 
       windowrulev2 = workspace 2, class:^(firefox)$
       windowrulev2 = workspace 3, class:^(discord)$
