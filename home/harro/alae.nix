@@ -22,9 +22,9 @@
   homemodules.tmux.enable = true;
   homemodules.onedrive.enable = true;
   homemodules.gemini.enable = true;
+  homemodules.sesh.enable = true;
 
   homemodules.kicad.enable = false;
-  homemodules.sesh.enable = false;
 
   # Nixvim langs
   nvim.lang = {

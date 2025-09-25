@@ -24,19 +24,11 @@
 
       [[session]]
       name='Vim Config '
-      path='~/nixos/home-manager/modules/nixvim'
+      path='~/nixos/home/harro/common/core/nixvim'
 
       [[session]]
       name='Nixos Config '
       path='~/nixos'
-
-      [[session]]
-      name="Home Manager Config "
-      path="~/nixos/home-manager/"
-
-      [[session]]
-      name="Harro Docs "
-      path='~/Harro-docs/'
     '';
   };
 }

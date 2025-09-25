@@ -21,9 +21,9 @@
   homemodules.hyprpaper.enable = true;
   homemodules.mako.enable = true;
   homemodules.tmux.enable = true;
-
+  homemodules.gemini.enable = true;
+  homemodules.sesh.enable = true;
   homemodules.kicad.enable = true;
-  homemodules.sesh.enable = false;
 
   # Nixvim langs
   nvim.lang = {
