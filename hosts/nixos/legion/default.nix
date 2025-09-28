@@ -1,10 +1,13 @@
 {
   pkgs,
   vars,
+  lib,
+  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.lenovo-legion-16arh7h-hybrid
 
     ../../common
   ];
@@ -27,9 +30,21 @@
   hostmodules.kitty.enable = true;
   hostmodules.zsh.enable = true;
   hostmodules.wayland.enable = true;
-  hostmodules.nvidia.enable = false;
   hostmodules.virtualisation.enable = true;
   hostmodules.appimage.enable = true;
+
+  hostmodules.nvidia.enable = true;
+  hostmodules.gaming.enable = true;
+
+  # Extra NVIDIA option (host dependant)
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+    nvidiaBusId = "PCI:01:00:0";
+    amdgpuBusId = "PCI:34:00:0";
+  };
 
   # Users
   hostmodules.users.harro.enable = true;

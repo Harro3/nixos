@@ -24,6 +24,7 @@
   homemodules.gemini.enable = true;
   homemodules.sesh.enable = true;
   homemodules.kicad.enable = true;
+  homemodules.gaming.enable = true;
 
   # Nixvim langs
   nvim.lang = {
