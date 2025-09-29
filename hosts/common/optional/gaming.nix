@@ -18,8 +18,11 @@
       enable32Bit = true;
     };
 
+    hardware.xone.enable = true;
+
     environment.systemPackages = with pkgs; [
       mangohud
+      sdl-jstest
     ];
   };
 }
