@@ -306,6 +306,9 @@ in {
           sensitivity = -0.5
       }
 
+      cursor {
+        no_hardware_cursors = true
+      }
 
       ###################
       ### KEYBINDINGS ###
@@ -323,6 +326,10 @@ in {
       bind = $mainMod, D, exec, wofi --show drun
       bind = $mainMod, R, exec, wofi --show run
       bind = $mainMod, M, exec, echo -n $(${lib.getExe wofiEmojiScript} | wofi --dmenu 2> /dev/null | cut -d' ' -f2) | wl-copy
+
+      # The sims
+      bind = $mainMod, Z, exec, /bin/sh -c 'WINEPREFIX="$HOME/Games/ea-app" wine "$HOME/Games/ea-app/drive_c/Program Files/EA Games/The Sims 4/Game-cracked/Bin/TS4_x64.exe"'
+
 
       # bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, T, togglesplit, # dwindle
