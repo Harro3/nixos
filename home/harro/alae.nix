@@ -24,7 +24,7 @@
   homemodules.gemini.enable = true;
   homemodules.sesh.enable = true;
 
-  homemodules.kicad.enable = false;
+  homemodules.kicad.enable = true;
 
   # Nixvim langs
   nvim.lang = {
@@ -69,6 +69,9 @@
 
     python312
     docker-compose
+
+    bottles
+    savvycan
   ];
 
   home.stateVersion = "24.05";
