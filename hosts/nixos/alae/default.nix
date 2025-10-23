@@ -40,6 +40,7 @@
   # Additionnal packages
   environment.systemPackages = with pkgs; [
     brightnessctl
+    wireguard-tools
     wget
     git
     firefox

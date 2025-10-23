@@ -70,6 +70,8 @@
 
     python312
     docker-compose
+
+    restream
   ];
 
   home.stateVersion = "24.05";

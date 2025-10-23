@@ -72,6 +72,8 @@
 
     bottles
     savvycan
+
+    restream
   ];
 
   home.stateVersion = "24.05";
