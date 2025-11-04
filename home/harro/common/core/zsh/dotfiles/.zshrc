@@ -116,4 +116,4 @@ if command -v sesh > /dev/null 2>&1; then
   alias s='sesh cn $(sesh l -ctzdi | fzf --ansi)'
 fi
 
-eval "$(ssh-agent)"
+eval "$(ssh-agent)" >/dev/null
