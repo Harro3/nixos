@@ -30,8 +30,8 @@
   hostmodules.virtualisation.enable = true;
   hostmodules.appimage.enable = true;
 
-  # Users
-  hostmodules.users.harro.enable = true;
+  # User management
+  users.groups.bosco = {};
 
   # Services
   virtualisation.docker.enable = true;

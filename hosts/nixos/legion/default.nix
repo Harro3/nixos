@@ -36,6 +36,9 @@
   hostmodules.nvidia.enable = true;
   hostmodules.gaming.enable = true;
 
+  # User management
+  users.groups.bosco = {};
+
   # Extra NVIDIA option (host dependant)
   hardware.nvidia.prime = {
     offload = {
@@ -45,9 +48,6 @@
     nvidiaBusId = "PCI:01:00:0";
     amdgpuBusId = "PCI:34:00:0";
   };
-
-  # Users
-  hostmodules.users.harro.enable = true;
 
   # Services
   virtualisation.docker.enable = true;

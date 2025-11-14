@@ -417,7 +417,6 @@ in {
       windowrulev2 = workspace 2, class:^(firefox)$
       windowrulev2 = workspace 3, class:^(discord)$
       windowrulev2 = workspace 4, title:^(Spotify Premium)$
-      windowrulev2 = workspace 5, class:^(Slack)$
 
       # Ignore maximize requests from apps. You'll probably like this.
       windowrulev2 = suppressevent maximize, class:.*

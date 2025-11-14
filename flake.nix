@@ -42,26 +42,46 @@
     inherit (self) outputs;
     inherit (nixpkgs) lib;
 
-    mkHost = host: {
+    userDefs = ./hosts/common/core/users;
+
+    hosts = lib.attrNames (builtins.readDir ./hosts/nixos);
+    users = let
+      userFiles = lib.filter (u: u != "default.nix") (lib.attrNames (builtins.readDir userDefs));
+      userNames = lib.map (f: lib.replaceStrings [".nix"] [""] f) userFiles;
+    in
+      userNames;
+
+    mkHost = host: let
+      hostPath = ./hosts/nixos/${host};
+      enabledUsers = lib.filter (user: builtins.pathExists ./home/${user}/${host}.nix) users;
+    in {
       ${host} = lib.nixosSystem {
         system = "x86_64-linux";
 
         specialArgs = {
           inherit inputs outputs;
+          vars = {hostname = host;};
 
           lib = nixpkgs.lib.extend (self: super: {custom = import ./lib {inherit (nixpkgs) lib;};});
-
-          vars = {
-            hostname = host;
-          };
         };
 
-        modules = [./hosts/nixos/${host}];
+        modules = [
+          hostPath
+          inputs.home-manager.nixosModules.home-manager
+
+          {
+            home-manager = {
+              backupFileExtension = "bck";
+              extraSpecialArgs = {inherit inputs;};
+              users = lib.genAttrs enabledUsers (user: import (./home/${user}/${host}.nix));
+            };
+          }
+        ];
       };
     };
 
-    mkHostConfigs = hosts: lib.foldl (acc: set: acc // set) {} (lib.map (host: mkHost host) hosts);
+    HostsConfigs = lib.foldl (acc: set: acc // set) {} (lib.map (host: mkHost host) hosts);
   in {
-    nixosConfigurations = mkHostConfigs (lib.attrNames (builtins.readDir ./hosts/nixos));
+    nixosConfigurations = HostsConfigs;
   };
 }

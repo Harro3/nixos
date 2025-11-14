@@ -10,7 +10,7 @@
   config = lib.mkIf config.homemodules.firefox.enable {
     programs.firefox = {
       enable = true;
-      languagePacks = ["de" "en-US"];
+      languagePacks = ["fr" "en-US"];
 
       /*
       ---- POLICIES ----
