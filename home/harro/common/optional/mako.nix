@@ -17,12 +17,14 @@
 
     catppuccin.mako.enable = true;
 
-    #   services.mako.settings = ''
-    #     [mode=default]
-    #     default-timeout=5000
-    #
-    #     [urgency=high]
-    #     ignore-timeout=1
-    #   '';
+    services.mako.settings = {
+      "mode=default" = {
+        default-timeout = 5000;
+      };
+
+      "urgency=high" = {
+        ignore-timeout = 1;
+      };
+    };
   };
 }
