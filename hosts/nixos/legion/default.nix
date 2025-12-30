@@ -33,8 +33,8 @@
   hostmodules.virtualisation.enable = true;
   hostmodules.appimage.enable = true;
 
-  hostmodules.nvidia.enable = true;
-  hostmodules.gaming.enable = true;
+  hostmodules.nvidia.enable = false;
+  hostmodules.gaming.enable = false;
 
   # User management
   users.groups.bosco = {};
