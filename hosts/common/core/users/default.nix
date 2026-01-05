@@ -1,9 +1,5 @@
-{
-  lib,
-  inputs,
-  ...
-}: {
-  imports = [inputs.home-manager.nixosModules.default] ++ lib.custom.allModules ./.;
+{libharro, ...}: {
+  imports = libharro.allModules ./.;
 
   config = {
     users.mutableUsers = false;

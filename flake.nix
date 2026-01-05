@@ -1,12 +1,9 @@
 {
-  description = "Harro's config";
+  description = "Harro's nixos and home-manager config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -37,51 +34,60 @@
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     ...
   } @ inputs: let
+    system = "x86_64-linux";
     inherit (self) outputs;
     inherit (nixpkgs) lib;
 
-    userDefs = ./hosts/common/core/users;
+    libharro = import ./lib {inherit lib;};
 
-    hosts = lib.attrNames (builtins.readDir ./hosts/nixos);
-    users = let
-      userFiles = lib.filter (u: u != "default.nix") (lib.attrNames (builtins.readDir userDefs));
-      userNames = lib.map (f: lib.replaceStrings [".nix"] [""] f) userFiles;
-    in
-      userNames;
-
-    mkHost = host: let
-      hostPath = ./hosts/nixos/${host};
-      enabledUsers = lib.filter (user: builtins.pathExists ./home/${user}/${host}.nix) users;
-    in {
+    mkHost = host: {
       ${host} = lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
 
         specialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs libharro;
           vars = {hostname = host;};
-
-          lib = nixpkgs.lib.extend (self: super: {custom = import ./lib {inherit (nixpkgs) lib;};});
         };
 
         modules = [
-          hostPath
-          inputs.home-manager.nixosModules.home-manager
-
-          {
-            home-manager = {
-              backupFileExtension = "bck";
-              extraSpecialArgs = {inherit inputs;};
-              users = lib.genAttrs enabledUsers (user: import (./home/${user}/${host}.nix));
-            };
-          }
+          ./hosts/nixos/${host}
         ];
       };
     };
 
-    HostsConfigs = lib.foldl (acc: set: acc // set) {} (lib.map (host: mkHost host) hosts);
+    hosts = lib.attrNames (builtins.readDir ./hosts/nixos);
+
+    nixosConfigurations = lib.foldl (acc: set: acc // set) {} (lib.map (host: mkHost host) hosts);
+
+    mkHome = user: host: {
+      "${user}@${host}" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {inherit system;};
+        modules = [./home/${user}/${host}.nix];
+
+        extraSpecialArgs = {
+          inherit inputs outputs libharro;
+          vars = {
+            hostname = host;
+            username = user;
+          };
+        };
+      };
+    };
+
+    mkHomes = user: let
+      hostFiles = builtins.attrNames (lib.attrsets.filterAttrs (path: _type: (_type != "directory")) (builtins.readDir ./home/${user}));
+
+      hostnames = builtins.map (f: lib.removeSuffix ".nix" f) hostFiles;
+    in
+      lib.foldl (acc: set: acc // set) {} (lib.map (host: mkHome user host) hostnames);
+
+    users = lib.attrNames (builtins.readDir ./home);
+
+    homeConfigurations = lib.foldl (acc: set: acc // set) {} (lib.map (user: mkHomes user) users);
   in {
-    nixosConfigurations = HostsConfigs;
+    inherit nixosConfigurations homeConfigurations;
   };
 }

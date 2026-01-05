@@ -1,8 +1,7 @@
 {
-  pkgs,
-  lib,
+  libharro,
   inputs,
   ...
 }: {
-  imports = [inputs.catppuccin.homeModules.catppuccin inputs.nixvim.homeManagerModules.nixvim] ++ lib.custom.allModules ./.;
+  imports = [inputs.catppuccin.homeModules.catppuccin inputs.nixvim.homeManagerModules.nixvim] ++ libharro.allModules ./.;
 }

@@ -1,3 +1,3 @@
-{lib, ...}: {
-  imports = lib.custom.allModules ./.;
+{libharro, ...}: {
+  imports = libharro.allModules ./.;
 }

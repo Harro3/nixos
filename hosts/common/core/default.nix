@@ -1,5 +1,5 @@
 {
-  lib,
+  libharro,
   inputs,
   ...
 }: {
@@ -7,5 +7,5 @@
     [
       inputs.sops-nix.nixosModules.sops
     ]
-    ++ lib.custom.allModules ./.;
+    ++ libharro.allModules ./.;
 }
