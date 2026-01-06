@@ -30,9 +30,6 @@
   hostmodules.virtualisation.enable = true;
   hostmodules.appimage.enable = true;
 
-  # User management
-  users.groups.bosco = {};
-
   # Services
   virtualisation.docker.enable = true;
   services.openssh.enable = true;
@@ -49,9 +46,6 @@
     spotify
   ];
 
-  networking.hosts = {
-    "127.0.0.1" = ["bosco-mosquitto"];
-  };
   networking.firewall.allowedTCPPorts = [8086 1883];
 
   system.stateVersion = "24.05";

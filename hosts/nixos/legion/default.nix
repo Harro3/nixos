@@ -35,9 +35,6 @@
   hostmodules.nvidia.enable = false;
   hostmodules.gaming.enable = false;
 
-  # User management
-  users.groups.bosco = {};
-
   # Extra NVIDIA option (host dependant)
   hardware.nvidia.prime = {
     offload = {
