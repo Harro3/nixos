@@ -1,5 +1,8 @@
 {...}: {
-  user.users.bosco = {
-    isNormalUser = true;
+  users.groups.bosco = {};
+
+  users.users.bosco = {
+    isSystemUser = true;
+    group = "bosco";
   };
 }
