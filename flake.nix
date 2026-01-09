@@ -49,7 +49,10 @@
 
         specialArgs = {
           inherit inputs outputs libharro;
-          vars = {hostname = host;};
+          vars = {
+            hostname = host;
+            mainUser = "harro";
+          };
         };
 
         modules = [
@@ -70,6 +73,7 @@
         extraSpecialArgs = {
           inherit inputs outputs libharro;
           vars = {
+            mainUser = "harro";
             hostname = host;
             username = user;
           };

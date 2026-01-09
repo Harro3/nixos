@@ -202,10 +202,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1767691390,
-        "narHash": "sha256-iDN1WOaDdpElF/0uYZlfTYUx06OlSoByxVUUnHoDp6w=",
+        "lastModified": 1767993596,
+        "narHash": "sha256-cD8ZOJ9sGChU4aIvi5uqcMWAXIdRgnl3ofV8UeyTPLk=",
         "ref": "main",
-        "rev": "0070e962ec602a6cc2366c33d17f26b6c89a73c4",
+        "rev": "6ea9133669b97c79ba13f6a2fa6aedc68930f02f",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Harro3/nix-secrets.git"
