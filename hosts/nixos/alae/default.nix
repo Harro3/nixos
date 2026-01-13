@@ -29,6 +29,7 @@
   hostmodules.wayland.enable = true;
   hostmodules.virtualisation.enable = true;
   hostmodules.appimage.enable = true;
+  hostmodules.yubikey.enable = true;
 
   # Services
   virtualisation.docker.enable = true;
