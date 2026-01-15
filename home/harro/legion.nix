@@ -74,8 +74,8 @@
     restream
 
     protonmail-desktop
-    protonvpn-gui
-    proton-pass
+    # protonvpn-gui
+    # proton-pass
   ];
 
   home.stateVersion = "24.05";
