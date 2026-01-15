@@ -74,6 +74,10 @@
     savvycan
 
     restream
+
+    protonmail-desktop
+    protonvpn-gui
+    proton-pass
   ];
 
   home.stateVersion = "24.05";
