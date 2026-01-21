@@ -41,15 +41,10 @@
 
           # Proton pass
           "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton_pass/latest.xpi";
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4644816/proton_pass-1.33.2.xpi";
             installation_mode = "force_installed";
           };
 
-          # Bitwarden
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-            installation_mode = "force_installed";
-          };
           # Catppuccin
           "{8446b178-c865-4f5c-8ccc-1d7887811ae3}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-lavender-git/latest.xpi";
@@ -59,12 +54,6 @@
           # Vimium
           "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
-            installation_mode = "force_installed";
-          };
-
-          # Pegasus infinity
-          "{9a066f3e-5093-471f-9495-fd8618959c81}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/infinity-pegasus/latest.xpi";
             installation_mode = "force_installed";
           };
         };
