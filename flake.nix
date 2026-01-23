@@ -20,6 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +78,7 @@
         extraSpecialArgs = {
           inherit inputs outputs libharro;
           vars = {
+            system = system;
             mainUser = "harro";
             hostname = host;
             username = user;

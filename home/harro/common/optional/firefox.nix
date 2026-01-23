@@ -1,6 +1,9 @@
 {
   config,
   lib,
+  pkgs,
+  inputs,
+  vars,
   ...
 }: {
   options = {
@@ -10,52 +13,103 @@
   config = lib.mkIf config.homemodules.firefox.enable {
     programs.firefox = {
       enable = true;
-      languagePacks = ["fr" "en-US"];
 
-      /*
-      ---- POLICIES ----
-      */
-      # Check about:policies#documentation for options.
-      policies = {
-        DisableTelemetry = true;
-        DisableFirefoxStudies = true;
-        EnableTrackingProtection = {
-          Value = true;
-          Locked = true;
-          Cryptomining = true;
-          Fingerprinting = true;
+      profiles.harro = {
+        id = 0;
+        isDefault = true;
+        name = "harro";
+
+        bookmarks.force = true;
+        bookmarks.settings = [
+          {
+            name = "mail";
+            tags = ["proton"];
+            keyword = "mail";
+            url = "https://mail.proton.me";
+          }
+          {
+            name = "drive";
+            tags = ["proton"];
+            keyword = "drive";
+            url = "https://drive.proton.me";
+          }
+          {
+            name = "pass";
+            tags = ["proton"];
+            keyword = "pass";
+            url = "https://pass.proton.me";
+          }
+        ];
+
+        settings = {
+          "browser.search.defaultEngine" = "DuckDuckGo";
+
+          "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "browser.newtabpage.activity-stream.showTopSites" = false;
+
+          "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
+          "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+          "privacy.trackingprotection.enabled" = true;
+          "privacy.trackingprotection.pbmode.enabled" = true;
+          "privacy.resistFingerprinting" = true;
+          "privacy.firstparty.isolate" = true;
+          "privacy.partition.network_state" = true;
+
+          "privacy.clearOnShutdown.downloads" = true;
+
+          "toolkit.telemetry.enabled" = false;
+          "toolkit.telemetry.unified" = false;
+          "datareporting.healthreport.uploadEnabled" = false;
+          "browser.ping-centre.telemetry" = false;
+          "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+
+          "signon.rememberSignons" = false;
+          "signon.autofillForms" = false;
+          "signon.generation.enabled" = false;
         };
-        DisablePocket = true;
-        DisableFirefoxAccounts = true;
-        DisableAccounts = true;
-        DisableFirefoxScreenshots = true;
-        OverrideFirstRunPage = "";
-        OverridePostUpdatePage = "";
-        DontCheckDefaultBrowser = true;
-        DisplayBookmarksToolbar = "never";
-        DisplayMenuBar = "default-off";
-        SearchBar = "unified";
 
-        ExtensionSettings = {
-          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+        search.engines = {
+          "Nix Packages" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
 
-          # Proton pass
-          "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/file/4644816/proton_pass-1.33.2.xpi";
-            installation_mode = "force_installed";
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@np"];
           };
+        };
+        search.force = true;
 
-          # Catppuccin
-          "{8446b178-c865-4f5c-8ccc-1d7887811ae3}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-lavender-git/latest.xpi";
-            installation_mode = "force_installed";
-          };
+        extensions.force = true;
+        extensions.packages = with inputs.firefox-addons.packages.${vars.system}; [
+          ublock-origin
+          youtube-shorts-block
+          sponsorblock
+          darkreader
+          proton-pass
+        ];
+      };
 
-          # Vimium
-          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
-            installation_mode = "force_installed";
-          };
+      policies.ExtensionSettings = {
+        # Catppuccin
+        "{8446b178-c865-4f5c-8ccc-1d7887811ae3}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-lavender-git/latest.xpi";
+          installation_mode = "force_installed";
         };
       };
     };
