@@ -22,6 +22,12 @@
         bookmarks.force = true;
         bookmarks.settings = [
           {
+            name = "lumo";
+            tags = ["proton"];
+            keyword = "lumo";
+            url = "https://lumo.proton.me";
+          }
+          {
             name = "mail";
             tags = ["proton"];
             keyword = "mail";
