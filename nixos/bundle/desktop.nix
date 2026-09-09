@@ -33,7 +33,8 @@
           pkgs.spotify
           pkgs.firefox
           pkgs.vlc
-          pkgs.libreoffice
+          # pkgs.libreoffice
+          pkgs.onlyoffice-desktopeditors
           pkgs.discord
           pkgs.wl-clipboard
           pkgs.appimage-run
