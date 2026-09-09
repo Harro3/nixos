@@ -28,6 +28,7 @@
         environment.systemPackages = [
           selfpkgs.kitty
 
+          pkgs.localsend
           pkgs.xwayland-satellite
           pkgs.spotify
           pkgs.firefox
