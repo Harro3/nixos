@@ -33,6 +33,7 @@
           pkgs.spotify
           pkgs.firefox
           pkgs.vlc
+          pkgs.switcheroo
           # pkgs.libreoffice
           pkgs.onlyoffice-desktopeditors
           pkgs.discord

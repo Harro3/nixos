@@ -19,6 +19,8 @@
           selfpkgs.tmux
           selfpkgs.sesh
 
+          pkgs.cava
+          pkgs.caligula
           pkgs.glab
           pkgs.git
           pkgs.file
