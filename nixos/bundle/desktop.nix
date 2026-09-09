@@ -36,6 +36,7 @@
           pkgs.switcheroo
           # pkgs.libreoffice
           pkgs.onlyoffice-desktopeditors
+          pkgs.thunderbird
           pkgs.discord
           pkgs.wl-clipboard
           pkgs.appimage-run
